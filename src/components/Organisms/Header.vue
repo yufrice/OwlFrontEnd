@@ -20,7 +20,7 @@ import { Component } from 'vue-property-decorator';
 @Component
 export default class HeadNav extends Vue {
   private toggle() {
-    return this.$store.commit('toggle');
+    return this.$store.commit('sideNavToggle');
   }
 }
 </script>

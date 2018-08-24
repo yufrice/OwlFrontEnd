@@ -1,8 +1,9 @@
 <template>
   <v-app id="app">
-    <Nav/>
+    <SideNav/>
+    <HeadNav/>
     <v-content>
-    <router-view></router-view>
+      <router-view/>
     </v-content>
     <v-footer class="pa-3">
       <v-spacer></v-spacer>
@@ -14,11 +15,13 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import Nav from '@/components/Nav.vue';
+import HeadNav from '@/components/Organisms/Header.vue';
+import SideNav from '@/components/Organisms/Side.vue';
 
 @Component({
   components: {
-    Nav,
+    SideNav,
+    HeadNav,
   },
 })
 export default class App extends Vue {}

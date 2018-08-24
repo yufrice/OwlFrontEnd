@@ -1,13 +1,15 @@
 <template>
   <v-container fluid fill-height>
-    <Search/>
-  </v-container>  
+    <v-layout row wrap>
+      <search/>
+    </v-layout>
+  </v-container>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import Search from '@/components/Search.vue';
+import Search from '@/components/Organisms/Search.vue';
 
 @Component({
   components: {

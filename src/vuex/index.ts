@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
-import drawer from './modules/drawer';
+import drawer from '@/vuex/modules/Drawer';
 
 Vue.use(Vuex);
 

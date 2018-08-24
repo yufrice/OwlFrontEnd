@@ -5,7 +5,7 @@ export default class Drawer extends VuexModule {
   public active: boolean = false;
 
   @Mutation
-  public toggle() {
+  public sideNavToggle(): void {
     this.active = !this.active;
   }
 }
