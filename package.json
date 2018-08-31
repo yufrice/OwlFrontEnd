@@ -1,0 +1,41 @@
+{
+  "name": "owl-webapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts-ts": "2.17.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@material-ui/core": "^3.0.1",
+    "@material-ui/icons": "^3.0.1",
+    "@storybook/addon-actions": "^3.4.10",
+    "@storybook/addon-links": "^3.4.10",
+    "@storybook/addon-notes": "^3.4.10",
+    "@storybook/addon-viewport": "^3.4.10",
+    "@storybook/addons": "^3.4.10",
+    "@storybook/react": "^3.4.10",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.9.3",
+    "@types/react": "^16.4.12",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-redux": "^6.0.6",
+    "@types/storybook__addon-actions": "^3.4.1",
+    "@types/storybook__addon-notes": "^3.3.3",
+    "@types/storybook__react": "^3.0.9",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "typescript": "^3.0.1"
+  }
+}
