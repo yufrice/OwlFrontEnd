@@ -3,7 +3,8 @@ image: node:jessie
 pages:
   stage: deploy
   script:
-  - yarn build-storybook
+    - yarn install
+    - yarn run build-storybook
   artifacts:
     paths:
     - storybook-static
