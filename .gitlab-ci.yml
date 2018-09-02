@@ -6,7 +6,7 @@ pages:
     - yarn install
     - yarn run build-storybook
     - mkdir -p dist/public
-    - mv -r storybook-static/* public/
+    - mv storybook-static/* public/
   artifacts:
     paths:
     - dist/public
