@@ -166,6 +166,13 @@
     react-inspector "^2.2.2"
     uuid "^3.2.1"
 
+"@storybook/addon-centered@^3.4.10":
+  version "3.4.10"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-centered/-/addon-centered-3.4.10.tgz#40e6093362fcc450432c8ace5454d92c74c588a9"
+  dependencies:
+    babel-runtime "^6.26.0"
+    global "^4.3.2"
+
 "@storybook/addon-links@3.4.10", "@storybook/addon-links@^3.4.10":
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-3.4.10.tgz#db53d0a0b354e7f5e55195315f48f7045307a429"
@@ -424,6 +431,12 @@
 "@types/storybook__addon-actions@^3.4.1":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@types/storybook__addon-actions/-/storybook__addon-actions-3.4.1.tgz#8f90d76b023b58ee794170f2fe774a3fddda2c1d"
+
+"@types/storybook__addon-centered@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@types/storybook__addon-centered/-/storybook__addon-centered-3.3.1.tgz#3ba6deb76da8742a9452e588956cf16a306fa752"
+  dependencies:
+    "@types/react" "*"
 
 "@types/storybook__addon-notes@^3.3.3":
   version "3.3.3"

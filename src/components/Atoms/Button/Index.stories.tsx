@@ -1,6 +1,8 @@
 import MenuIcon from '@material-ui/icons/Menu';
+import centered from '@storybook/addon-centered';
 import {withNotes} from '@storybook/addon-notes';
 import {storiesOf} from '@storybook/react';
+
 import * as React from 'react';
 
 import {Button, ButtonColor, ButtonVariant} from './Button';
@@ -14,6 +16,7 @@ const buttonEnum = (variant: ButtonVariant) => (Object.keys(ButtonColor).map(
 ));
 
 storiesOf('Atoms/Button', module)
+    .addDecorator(centered)
     .add('Text',
         withNotes('') (() =>
             <div style={{display: 'flex'}}>
