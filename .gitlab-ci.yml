@@ -1,0 +1,9 @@
+image: node:jessie
+
+pages:
+  stage: deploy
+  script:
+  - yarn build-storybook
+  artifacts:
+    paths:
+    - storybook-static
