@@ -9,8 +9,9 @@ pages:
   script:
     - yarn install
     - yarn run build-storybook
-    - mkdir -p dist/public
+    - rm -rf public
+    - mkdir public
     - mv storybook-static/* public/
   artifacts:
     paths:
-    - dist/public
+    - public
