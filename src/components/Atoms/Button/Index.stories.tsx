@@ -5,12 +5,13 @@ import {storiesOf} from '@storybook/react';
 
 import * as React from 'react';
 
-import {Button, ButtonColor, ButtonVariant} from './Button';
+import {Button, ButtonVariant} from './Button';
 import {IconButton} from './IconButton';
+import * as Type from '../type';
 
 const menuIcon = <MenuIcon/>;
-const buttonEnum = (variant: ButtonVariant) => (Object.keys(ButtonColor).map(
-    (style: ButtonColor) => (
+const buttonEnum = (variant: ButtonVariant) => (Object.keys(Type.Color).map(
+    (style: Type.Color) => (
         <Button child = { style } color = { style } variant={ variant }/>
     )
 ));
@@ -41,7 +42,7 @@ storiesOf('Atoms/Button', module)
     .add('Icon',
         withNotes('サイドバーにしか使わないとおもう.') (() =>
             <div style={{display: 'flex'}}>
-                <IconButton icon = {menuIcon} />
+                <IconButton child = {menuIcon} />
             </div>
         )
     );

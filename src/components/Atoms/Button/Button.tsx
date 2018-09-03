@@ -1,12 +1,7 @@
 import Btn from '@material-ui/core/Button';
-import * as React from 'react';
 
-export enum ButtonColor {
-    default = 'default',
-    inherit = 'inherit',
-    primary = 'primary',
-    secondary = 'secondary',
-};
+import * as React from 'react';
+import * as Type from '../type';
 
 export enum ButtonVariant {
     text = 'text',
@@ -20,19 +15,24 @@ export enum ButtonVariant {
 
 interface IProps {
     child: React.ReactNode,
-    color?: ButtonColor,
+    class?: string,
+    color?: Type.Color,
     variant?: ButtonVariant,
 };
 
 export class Button extends React.Component<IProps, {}> {
     public static defaultProps: Partial<IProps> = {
-        color: ButtonColor.default,
+        class: '',
+        color: Type.Color.default,
         variant: ButtonVariant.text,
     };
 
     public render() {
         return (
-            <Btn color={this.props.color} variant={this.props.variant}>
+            <Btn className = {this.props.class}
+                 color = {this.props.color}
+                 variant = {this.props.variant}
+            >
                 {this.props.child}
             </Btn>
         );
