@@ -166,14 +166,6 @@
     react-inspector "^2.2.2"
     uuid "^3.2.1"
 
-"@storybook/addon-backgrounds@^3.4.10":
-  version "3.4.10"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-3.4.10.tgz#89b4da0dabd125b037353b72dc8ca5183012b39c"
-  dependencies:
-    babel-runtime "^6.26.0"
-    global "^4.3.2"
-    prop-types "^15.6.1"
-
 "@storybook/addon-centered@^3.4.10":
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/@storybook/addon-centered/-/addon-centered-3.4.10.tgz#40e6093362fcc450432c8ace5454d92c74c588a9"
@@ -462,10 +454,6 @@
 "@types/storybook__addon-actions@^3.4.1":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@types/storybook__addon-actions/-/storybook__addon-actions-3.4.1.tgz#8f90d76b023b58ee794170f2fe774a3fddda2c1d"
-
-"@types/storybook__addon-backgrounds@^3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@types/storybook__addon-backgrounds/-/storybook__addon-backgrounds-3.2.1.tgz#07a5f97fe87068b95763a35d36f05fba413b7695"
 
 "@types/storybook__addon-centered@^3.3.1":
   version "3.3.1"

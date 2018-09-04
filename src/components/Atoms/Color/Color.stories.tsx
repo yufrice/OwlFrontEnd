@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { theme } from './color';
 
-import {Bar} from '../Bar/Bar';
+import { Bar } from '../Bar/Bar';
 
 storiesOf('Atoms', module)
     .addDecorator(centered)
