@@ -15,7 +15,7 @@ export class Bar extends React.Component<IProps, {}> {
     public static defaultProps: Partial<IProps> = {
         child: {},
         class: '',
-        color: Type.Color.default,
+        color: 'default',
         position: 'fixed',
     };
 
