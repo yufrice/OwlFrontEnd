@@ -5,7 +5,7 @@ import * as React from 'react';
 import * as Type from '../type';
 
 interface IProps {
-    child? : React.ReactNode,
+    child : React.ReactNode,
     class?: string,
     color?: Type.Color,
     position?: Type.Position,
@@ -13,7 +13,6 @@ interface IProps {
 
 export class Bar extends React.Component<IProps, {}> {
     public static defaultProps: Partial<IProps> = {
-        child: {},
         class: '',
         color: 'default',
         position: 'fixed',
@@ -22,7 +21,9 @@ export class Bar extends React.Component<IProps, {}> {
     public render() {
         return (
             <AppBar position={ this.props.position } color={ this.props.color }>
-                <Toolbar/>
+                <Toolbar>
+                    { this.props.child }
+                </Toolbar>
             </AppBar>
         );
     };

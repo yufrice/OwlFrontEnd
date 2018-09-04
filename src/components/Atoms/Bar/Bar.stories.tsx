@@ -10,7 +10,7 @@ storiesOf('Atoms', module)
     .add('Bar',
        (() =>
             <div style={{display: 'flex'}}>
-                <Bar color={ 'primary' } />
+                <Bar child={ {} } color={ 'primary' } />
             </div>
         )
     );

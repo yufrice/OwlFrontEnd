@@ -15,8 +15,8 @@ storiesOf('Atoms/Button', module)
             <div style={{display: 'flex'}}>
                 <Button
                     child = { 'Text' }
-                    color = { 'primary' }
-                    variant = { 'outlined' }
+                    color = { 'default' }
+                    variant = { 'contained' }
                 />
             </div>
     )
