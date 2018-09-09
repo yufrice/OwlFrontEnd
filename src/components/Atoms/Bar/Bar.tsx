@@ -20,7 +20,7 @@ export class Bar extends React.Component<IProps, {}> {
 
     public render() {
         return (
-            <AppBar position={ this.props.position } color={ this.props.color }>
+            <AppBar className={ this.props.class } position={ this.props.position } color={ this.props.color }>
                 <Toolbar>
                     { this.props.child }
                 </Toolbar>
