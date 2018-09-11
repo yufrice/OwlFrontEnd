@@ -1,7 +1,6 @@
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import centered from '@storybook/addon-centered';
-import { withNotes } from '@storybook/addon-notes';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -26,9 +25,8 @@ storiesOf('Atoms/Button', module)
 
     )
     .add('Icon',
-        withNotes('サイドバーにしか使わないとおもう.') (() =>
+        () =>
             <div style={{display: 'flex'}}>
                 <IconButton child = { <MenuIcon/> } />
             </div>
-        )
     );
