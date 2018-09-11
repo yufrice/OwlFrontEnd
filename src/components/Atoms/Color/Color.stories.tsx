@@ -17,7 +17,7 @@ storiesOf('Atoms', module)
                 position={ 'static' }
             />
             <Bar
-                child={ <h1> Seconday </h1> }
+                child={ <h1> Secondary </h1> }
                 color={ 'secondary' }
                 position={ 'static' }
             />

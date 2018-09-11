@@ -24,10 +24,10 @@ export class Card extends React.Component<IProps, {}> {
                 raised = {this.props.raised}
             >
                 <CardContent>
-                    { this.props.child }
+                    {this.props.child}
                 </CardContent>
                 <CardActions>
-                    { this.props.childActions }
+                    {this.props.childActions}
                 </CardActions>
             </Crd>
         );
