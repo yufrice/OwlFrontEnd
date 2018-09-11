@@ -1,11 +1,10 @@
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import centered from '@storybook/addon-centered';
 import { storiesOf } from '@storybook/react';
-
 import * as React from 'react';
 
-import { Bar } from '../Bar/Bar';
-import { theme } from './color';
+import { Bar } from '../Bar';
+import { theme } from './theme';
 
 storiesOf('Atoms', module)
     .addDecorator(centered)

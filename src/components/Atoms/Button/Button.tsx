@@ -1,6 +1,6 @@
 import Btn from '@material-ui/core/Button';
-
 import * as React from 'react';
+
 import * as Type from '../type';
 
 interface IProps {

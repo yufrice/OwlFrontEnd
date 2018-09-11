@@ -1,5 +1,5 @@
-import * as React from 'react';
 import IconBtn from '@material-ui/core/IconButton';
+import * as React from 'react';
 
 interface IProps {
     child: React.ReactNode,

@@ -3,12 +3,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import centered from '@storybook/addon-centered';
 import { withNotes } from '@storybook/addon-notes';
 import { storiesOf } from '@storybook/react';
-
 import * as React from 'react';
 
-import { theme } from './../Color/color';
-import { Button } from './Button';
-import { IconButton } from './IconButton';
+import { Button, IconButton } from '.';
+import { theme } from '../Theme';
 
 storiesOf('Atoms/Button', module)
     .addDecorator(centered)
