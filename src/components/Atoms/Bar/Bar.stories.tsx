@@ -8,9 +8,8 @@ import { Bar } from './Bar';
 
 storiesOf('Atoms', module)
     .add('Bar',
-       (() =>
+       () =>
             <MuiThemeProvider theme={theme}>
                 <Bar child={ '' } color={ 'primary' } />
             </MuiThemeProvider>
-        )
     );

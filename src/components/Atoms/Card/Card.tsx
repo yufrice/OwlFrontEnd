@@ -3,12 +3,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import * as React from 'react';
 
-interface IProps {
-    child: React.ReactNode,
-    childActions?: React.ReactNode,
-    class?: string,
-    raised?: boolean,
-};
+import { IProps } from "./type";
 
 export class Card extends React.Component<IProps, {}> {
     public static defaultProps: Partial<IProps> = {
