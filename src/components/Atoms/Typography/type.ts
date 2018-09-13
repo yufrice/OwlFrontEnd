@@ -1,5 +1,33 @@
-export type Color = 'default' | 'inherit' | 'primary' | 'secondary'
+export interface IProps {
+    child: React.ReactNode,
+    class?: string,
+    align?: Align,
+    color?: Color,
+    variant?: Variant,
+};
 
-export type Position = 'fixed' | 'absolute' | 'sticky' | 'static'
+type Align = 'inherit'
+    | 'left'
+    | 'center'
+    | 'right'
+    | 'justify'
 
-export type Variant = 'text' | 'flat' | 'outlined' | 'contained' | 'raised' | 'fab' | 'extendedFab'
+type Color = 'default'
+    | 'error'
+    | 'inherit'
+    | 'primary'
+    | 'secondary'
+    | 'textPrimary'
+    | 'textSecondary'
+
+type Variant = 'display4'
+    | 'display3'
+    | 'display2'
+    | 'display1'
+    | 'headline'
+    | 'title'
+    | 'subheading'
+    | 'body2'
+    | 'body1'
+    | 'caption'
+    | 'button'
