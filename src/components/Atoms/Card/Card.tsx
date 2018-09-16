@@ -1,9 +1,9 @@
-import Crd from '@material-ui/core/Card';
+import _Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import * as React from 'react';
 
-import { IProps } from "./type";
+import { IProps } from './type';
 
 export class Card extends React.Component<IProps, {}> {
     public static defaultProps: Partial<IProps> = {
@@ -13,7 +13,7 @@ export class Card extends React.Component<IProps, {}> {
 
     public render() {
         return (
-            <Crd
+            <_Card
                 className = {this.props.class}
                 raised = {this.props.raised}
             >
@@ -23,7 +23,7 @@ export class Card extends React.Component<IProps, {}> {
                 <CardActions>
                     {this.props.childActions}
                 </CardActions>
-            </Crd>
+            </_Card>
         );
     };
 };
