@@ -1,9 +1,16 @@
-export interface IProps {
+export interface IButtonProps {
     child: React.ReactNode,
     class?: string,
     color?: Color,
+    onClick: () => void,
     size?: Size,
     variant?: Variant,
+};
+
+export interface IIconProps {
+    child: React.ReactNode,
+    class?: string,
+    onClick: () => void,
 };
 
 type Color = 'default'

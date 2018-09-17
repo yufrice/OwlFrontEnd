@@ -1,5 +1,6 @@
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
+import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
@@ -15,10 +16,12 @@ storiesOf('Atoms/Button', module)
                 <Button
                     child = { 'Text' }
                     color = { 'primary' }
+                    onClick = { action('clicked') }
                 />
                 <Button
                     child = { 'Text' }
                     color = { 'secondary' }
+                    onClick = { action('clicked') }
                     variant = { 'outlined' }
                 />
             </MuiThemeProvider>
@@ -27,6 +30,9 @@ storiesOf('Atoms/Button', module)
     .add('Icon',
         () =>
             <div style={{display: 'flex'}}>
-                <IconButton child = { <MenuIcon/> } />
+                <IconButton
+                    onClick = { action('clicked') }
+                    child = { <MenuIcon/> }
+                />
             </div>
     );

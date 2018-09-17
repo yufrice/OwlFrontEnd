@@ -1,10 +1,10 @@
 import Btn from '@material-ui/core/Button';
 import * as React from 'react';
 
-import { IProps } from './type';
+import { IButtonProps } from './type';
 
-export class Button extends React.Component<IProps, {}> {
-    public static defaultProps: Partial<IProps> = {
+export class Button extends React.Component<IButtonProps, {}> {
+    public static defaultProps: Partial<IButtonProps> = {
         class: '',
         color: 'default',
         size: 'medium',
@@ -15,6 +15,7 @@ export class Button extends React.Component<IProps, {}> {
         return (
             <Btn className = {this.props.class}
                  color = {this.props.color}
+                 onClick = {this.props.onClick}
                  size = {this.props.size}
                  variant = {this.props.variant}
             >
