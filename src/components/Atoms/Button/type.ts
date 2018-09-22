@@ -2,6 +2,7 @@ export interface IButtonProps {
     child: React.ReactNode,
     class?: string,
     color?: Color,
+    disabled?: boolean,
     onClick: () => void,
     size?: Size,
     variant?: Variant,
