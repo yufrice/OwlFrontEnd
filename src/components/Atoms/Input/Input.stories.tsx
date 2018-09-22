@@ -7,5 +7,11 @@ import { TextInput } from './TextInput';
 storiesOf('Atoms/Input', module)
     .addDecorator(centered)
     .add('Text', () =>
-        <TextInput/>
+        <div>
+            <TextInput/>
+            <TextInput label={'disable'} disabled={true} />
+            <TextInput label={'error'} error={true} />
+            <TextInput label={'password'} type={'password'} />
+            <TextInput label={'required'} required={true} />
+        </div>
 );

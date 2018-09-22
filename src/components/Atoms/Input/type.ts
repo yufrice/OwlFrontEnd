@@ -1,12 +1,21 @@
 export interface IProps {
     className?: string,
+    disabled?: boolean,
+    label?: React.ReactNode,
+    error?: boolean,
+    type?: InputType,
+    required?: boolean,
+    onChange?: (_: object) => void,
     value?: Value,
 };
 
-type Value = 'string'
-    | 'number'
-    | 'bool'
-    | 'arrayOf'
+type Value = string
+    | number
+    | boolean
 
-// ToDo
-// https://material-ui.com/api/text-field/
+type InputType = 'hidden'
+    | 'text'
+    | 'search'
+    | 'password'
+    | 'number'
+    | 'color'
