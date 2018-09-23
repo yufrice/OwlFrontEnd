@@ -11,7 +11,7 @@ export interface IButtonProps {
 export interface IIconProps {
     child: React.ReactNode,
     class?: string,
-    onClick: () => void,
+    onClick: (e: React.MouseEvent<HTMLElement>) => void,
 };
 
 type Color = 'default'
