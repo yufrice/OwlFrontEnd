@@ -1,11 +1,10 @@
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { Button, IconButton } from '.';
+import { Button } from '.';
 import { theme } from '../Theme';
 
 storiesOf('Atoms/Button', module)
@@ -72,13 +71,4 @@ storiesOf('Atoms/Button', module)
                 />
             </MuiThemeProvider>
 
-    )
-    .add('Icon',
-        () =>
-            <div style={{display: 'flex'}}>
-                <IconButton
-                    onClick = { action('clicked') }
-                    child = { <MenuIcon/> }
-                />
-            </div>
     );

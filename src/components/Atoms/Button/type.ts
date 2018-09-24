@@ -1,4 +1,4 @@
-export interface IButtonProps {
+export interface IProps {
     child: React.ReactNode,
     class?: string,
     color?: Color,
@@ -6,12 +6,6 @@ export interface IButtonProps {
     onClick: () => void,
     size?: Size,
     variant?: Variant,
-};
-
-export interface IIconProps {
-    child: React.ReactNode,
-    class?: string,
-    onClick: (e: React.MouseEvent<HTMLElement>) => void,
 };
 
 type Color = 'default'

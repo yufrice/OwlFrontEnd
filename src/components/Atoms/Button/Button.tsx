@@ -1,10 +1,10 @@
 import _Button from '@material-ui/core/Button';
 import * as React from 'react';
 
-import { IButtonProps } from './type';
+import { IProps } from './type';
 
-export class Button extends React.Component<IButtonProps, {}> {
-    public static defaultProps: Partial<IButtonProps> = {
+export class Button extends React.Component<IProps, {}> {
+    public static defaultProps: Partial<IProps> = {
         class: '',
         color: 'default',
         disabled: false,

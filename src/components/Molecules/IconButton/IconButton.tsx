@@ -1,10 +1,11 @@
 import IconBtn from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import * as React from 'react';
 
-import { IIconProps } from './type';
+import { IProps } from './type';
 
-export class IconButton extends React.Component<IIconProps, {}> {
-    public static defaultProps: Partial<IIconProps> = {
+export class IconButton extends React.Component<IProps, {}> {
+    public static defaultProps: Partial<IProps> = {
         class: '',
     };
 
@@ -14,7 +15,7 @@ export class IconButton extends React.Component<IIconProps, {}> {
                 className = {this.props.class}
                 onClick = {this.props.onClick}
             >
-                {this.props.child}
+                <MenuIcon/>
             </IconBtn>
         );
     };
