@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { Card } from './Card';
 
-storiesOf('Atoms/Card', module)
+storiesOf('Molecules/Card', module)
     .addDecorator(centered)
     .add('Default', () =>
         <Card child={''} />

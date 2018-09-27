@@ -10,6 +10,9 @@
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "src",
+    "paths": {
+      "components*": ["src/components*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
