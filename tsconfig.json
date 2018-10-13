@@ -12,6 +12,7 @@
     "paths": {
       "@*": ["src/*"]
     },
+    "typeRoots": ["types", "node_modules/@types"],
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
