@@ -37,6 +37,11 @@ storiesOf('Molecules', module)
                     { (state: any) =>
                         <Modal
                             title={'Title'}
+                            body={'bodybodybody'}
+                            action={<Button
+                                child={'Close'}
+                                onClick={closeHandler}
+                            />}
                             open={state.active}
                             onClose={closeHandler}
                         />

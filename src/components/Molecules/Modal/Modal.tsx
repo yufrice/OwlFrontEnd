@@ -7,14 +7,17 @@ import { IProps } from './type';
 
 const StyledModalContent= styled.div`
     top: 50%;
-    bottom: 0;
     left: 50%;
-    right: 0;
     position: fixed;
+    padding: 50px;
     transform: translate(-50%, -50%);
     background-color: white;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 3%;
+    z-index: 988;
+    :: header {
+        top: 0;
+    }
 `;
 
 
@@ -31,10 +34,16 @@ export class Modal extends React.Component<IProps, {}> {
             >
                 <StyledModalContent>
                     <Typography
+                        class = 'header'
                         child = {this.props.title}
-                        align = {'center'}
-                        variant = {'display1'}
+                        align = 'center'
+                        variant = 'display1'
                     />
+                    <Typography
+                        child = {this.props.body}
+                        variant = 'body1'
+                    />
+                    {this.props.action}
                 </StyledModalContent>
             </_Modal>
         );

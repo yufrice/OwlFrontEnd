@@ -1,6 +1,8 @@
 export interface IProps {
-    title: string,
+    title?: string,
+    body?: string,
+    action?: React.ReactNode,
     open: boolean,
-    onClose?: () => void,
+    onClose: () => void,
     class?: string,
 };
