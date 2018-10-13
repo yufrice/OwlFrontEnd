@@ -13,6 +13,7 @@ module.exports = (baseConfig, env) => {
         loader: "ts-loader"
     });
     config.resolve.extensions.push('.ts', '.tsx');
+    config.resolve.alias['@'] = path.join(include, 'src/')
 
     return config;
 };
