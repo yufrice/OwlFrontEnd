@@ -5,12 +5,18 @@ import styled from 'styled-components';
 import { Typography } from '@/components/Atoms/Typography';
 import { IProps } from './type';
 
-const StyledModal = styled(_Modal)`
-    &&&{ top: 50%;
-         left: 50%;
-    };
+const StyledModalContent= styled.div`
+    top: 50%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    position: fixed;
     transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 3%;
 `;
+
 
 export class Modal extends React.Component<IProps, {}> {
     public static defaultProps: Partial<IProps> = {
@@ -19,21 +25,18 @@ export class Modal extends React.Component<IProps, {}> {
 
     public render() {
         return (
-            <StyledModal
+            <_Modal
                 open = {this.props.open}
                 onClose = {this.props.onClose}
             >
-                <div>
+                <StyledModalContent>
                     <Typography
                         child = {this.props.title}
+                        align = {'center'}
                         variant = {'display1'}
                     />
-                    <Typography
-                        child = {this.props.subTitle}
-                        variant = {'subheading'}
-                    />
-                </div>
-            </StyledModal>
+                </StyledModalContent>
+            </_Modal>
         );
     };
 };
