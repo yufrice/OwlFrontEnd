@@ -8,9 +8,12 @@ storiesOf('Molecules', module)
     .addDecorator(centered)
     .add('Modal',
         () =>
-            <Modal
-                child={'test'}
-                open={true}
-            />
+            <div>
+                <Modal
+                    title={'Title'}
+                    subTitle={'SubTitle'}
+                    open={true}
+                />
+            </div>
     );
 
