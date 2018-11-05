@@ -3,15 +3,14 @@ import centered from '@storybook/addon-centered';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { Bar } from '../Bar';
+import { GlobalHeader } from '../../Organisms/GlobalHeader';
 import { theme } from './theme';
 
 storiesOf('Atoms/Color', module)
     .addDecorator(centered)
     .add('Primary', () =>
         <MuiThemeProvider theme={theme}>
-            <Bar
-                child={ <h1> Primary </h1> }
+            <GlobalHeader
                 color={ 'primary' }
                 position={ 'static' }
             />
@@ -19,8 +18,7 @@ storiesOf('Atoms/Color', module)
         )
     .add('Secondary', () =>
         <MuiThemeProvider theme={theme}>
-            <Bar
-                child={ <h1> Secondary </h1> }
+            <GlobalHeader
                 color={ 'secondary' }
                 position={ 'static' }
             />

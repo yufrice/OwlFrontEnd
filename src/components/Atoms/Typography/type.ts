@@ -4,6 +4,7 @@ export interface IProps {
     align?: Align,
     color?: Color,
     variant?: Variant,
+    id?: string,
 };
 
 type Align = 'inherit'

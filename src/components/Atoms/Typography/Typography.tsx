@@ -6,7 +6,6 @@ import { IProps } from "./type";
 export class Typography extends React.Component<IProps, {}> {
     public static defaultProps: Partial<IProps> = {
         align: 'inherit',
-        class: '',
         color: 'default',
         variant: 'body1',
 
@@ -19,6 +18,7 @@ export class Typography extends React.Component<IProps, {}> {
                 align={ this.props.align }
                 color={ this.props.color }
                 variant = { this.props.variant }
+                id = {this.props.id }
             >
                 { this.props.child }
             </_Typography>
