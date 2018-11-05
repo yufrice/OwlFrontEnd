@@ -11,7 +11,7 @@ import { IconButton, Modal } from '@/components/Molecules'
 import { IProps, IState } from './type';
 
 
-export class Header extends React.Component<IProps, IState> {
+export class GlobalHeader extends React.Component<IProps, IState> {
 
     public static defaultProps: Partial<IProps> = {
         class: '',

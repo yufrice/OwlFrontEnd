@@ -1,3 +1,3 @@
-import { Header } from './Header';
+import { GlobalHeader } from './GlobalHeader';
 
-export { Header };
+export { GlobalHeader };

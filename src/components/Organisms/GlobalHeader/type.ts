@@ -19,4 +19,3 @@ type Position = 'fixed'
     | 'absolute'
     | 'sticky'
     | 'static'
-

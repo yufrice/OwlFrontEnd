@@ -2,13 +2,13 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { Header } from './Header';
+import { GlobalHeader } from './GlobalHeader';
 
 
 storiesOf('Organisms', module)
-    .add('Header',
+    .add('GlobalHeader',
         () =>
-            <Header
+            <GlobalHeader
                 color={'default'}
                 onClick={action('clicked')}
             />
