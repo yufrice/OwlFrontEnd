@@ -1,5 +1,5 @@
 import IconBtn from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import SettingsIcon from '@material-ui/icons/Settings';
 import * as React from 'react';
 
 import { IProps } from './type';
@@ -12,10 +12,11 @@ export class IconButton extends React.Component<IProps, {}> {
     public render() {
         return (
             <IconBtn
-                className = {this.props.class}
-                onClick = {this.props.onClick}
+                className={this.props.class}
+                onClick={this.props.onClick}
+                color='inherit'
             >
-                <MenuIcon/>
+                <SettingsIcon/>
             </IconBtn>
         );
     };
