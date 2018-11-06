@@ -59,8 +59,7 @@ export class GlobalHeader extends React.Component<IProps, IState> {
                     </Tabs>
                 </AppBar>
                 <Modal
-                    title={'Config'}
-                    body={'body'}
+                    child={'Config'}
                     open={this.state.configOpen}
                     onClose={this.closeHandler}
                     size={[80, 80]}

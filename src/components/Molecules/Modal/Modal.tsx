@@ -2,7 +2,6 @@ import _Modal from '@material-ui/core/Modal';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { Typography } from '@/components/Atoms/Typography';
 import { IProps } from './type';
 
 
@@ -23,18 +22,7 @@ export class Modal extends React.Component<IProps, {}> {
                 <StyledModalContent
                     size={this.props.size}
                 >
-                    <Typography
-                        child = {this.props.title}
-                        align = 'center'
-                        variant = 'display1'
-                        id = 'modal-title'
-                    />
-                    <Typography
-                        child = {this.props.body}
-                        variant = 'body1'
-                        id = 'modal-description'
-                    />
-                    {this.props.action}
+                    {this.props.child}
                 </StyledModalContent>
             </_Modal>
         );
