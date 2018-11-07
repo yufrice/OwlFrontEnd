@@ -1,20 +1,23 @@
 import centered from '@storybook/addon-centered';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+import styled from "styled-components"
 
-import { GlobalHeader } from '../../Organisms/GlobalHeader';
+import { theme } from '.';
 
 storiesOf('Atoms/Color', module)
     .addDecorator(centered)
     .add('Primary', () =>
-        <GlobalHeader
-            color={ 'primary' }
-            position={ 'static' }
-        />
+        <ColorDisplay
+            color={theme.palette.primary.main}/>
     )
     .add('Secondary', () =>
-        <GlobalHeader
-            color={ 'secondary' }
-            position={ 'static' }
-        />
+        <ColorDisplay
+            color={theme.palette.secondary.main}/>
     );
+
+const ColorDisplay = styled.div<{color: string}>`
+    background: ${props => props.color};
+    height: 100px;
+    width: 100px;
+`;
