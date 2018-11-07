@@ -30,7 +30,7 @@ export class Modal extends React.Component<IProps, {}> {
 };
 
 const StyledModalContent = styled.div<{size: any}>`
-    width: ${props=> props.size[0]}%;
+    width: ${props => props.size[0]}%;
     height: ${props => props.size[1]}%;
     position: fixed;
     display: flex;
