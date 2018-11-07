@@ -1,6 +1,6 @@
 export interface IProps {
-    child: React.ReactNode,
-    childActions?: React.ReactNode,
+    title: string,
+    actions?: () => void,
+    cardImg: string,
     class?: string,
-    raised?: boolean,
 };

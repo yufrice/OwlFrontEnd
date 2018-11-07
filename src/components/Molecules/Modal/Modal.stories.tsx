@@ -3,8 +3,8 @@ import centered from '@storybook/addon-centered';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { Button } from '@/components/Atoms/Button';
-import { Modal } from '.';
+import { Button } from '@/components/Atoms';
+import { Modal } from '@/components/Molecules';
 
 const store = new Store({
     active: false

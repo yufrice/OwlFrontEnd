@@ -33,12 +33,14 @@ const StyledModalContent = styled.div<{size: any}>`
     width: ${props=> props.size[0]}%;
     height: ${props => props.size[1]}%;
     position: fixed;
+    display: flex;
     padding: 30px;
+    align-items: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     border: 1px solid rgba(0,0,0,.2);
-    border-radius: 3%;
+    border-radius: 3px;
     z-index: 988;
 `;
