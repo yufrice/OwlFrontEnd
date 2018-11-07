@@ -1,4 +1,4 @@
-image: node:jessie
+image: node:slim
 
 cache:
   paths:
