@@ -1,9 +1,9 @@
+import Button from '@material-ui/core/Button';
 import { State,  Store } from "@sambego/storybook-state";
 import centered from '@storybook/addon-centered';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { Button } from '@/components/Atoms';
 import { Modal } from '@/components/Molecules';
 
 const store = new Store({
@@ -28,17 +28,20 @@ storiesOf('Molecules', module)
         () =>
             <div>
                 <Button
-                    child={'Open'}
                     onClick={openHandler}
                     variant={'fab'}
-                />
+                >
+                    Open
+                </Button>
                 <State store={store}>
                     { (state: any) =>
                         <Modal
-                            child={<Button
-                                child={'Close'}
-                                onClick={closeHandler}
-                            />}
+                            child={
+                                <Button
+                                    onClick={closeHandler}
+                                >
+                                    Close
+                                </Button>}
                             open={store.get('active')}
                             onClose={closeHandler}
                         />
