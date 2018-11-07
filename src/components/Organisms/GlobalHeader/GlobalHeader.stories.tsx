@@ -1,4 +1,3 @@
-import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -10,6 +9,5 @@ storiesOf('Organisms', module)
         () =>
             <GlobalHeader
                 color={'default'}
-                onClick={action('clicked')}
             />
     );

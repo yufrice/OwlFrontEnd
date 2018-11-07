@@ -38,7 +38,7 @@ export class GlobalHeader extends React.Component<IProps, IState> {
                 >
                     <Toolbar>
                         <Title
-                            variant={'title'}
+                            variant={'h6'}
                             color={'inherit'}
                          >
                             TITLE
