@@ -1,4 +1,4 @@
-import { State, StateDecorator, Store } from "@sambego/storybook-state";
+import { State,  Store } from "@sambego/storybook-state";
 import centered from '@storybook/addon-centered';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
@@ -24,7 +24,6 @@ const closeHandler = () => {
 
 storiesOf('Molecules', module)
     .addDecorator(centered)
-    .addDecorator(StateDecorator(store))
     .add('Modal',
         () =>
             <div>
@@ -40,7 +39,7 @@ storiesOf('Molecules', module)
                                 child={'Close'}
                                 onClick={closeHandler}
                             />}
-                            open={state.active}
+                            open={store.get('active')}
                             onClose={closeHandler}
                         />
                     }
