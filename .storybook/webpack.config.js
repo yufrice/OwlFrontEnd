@@ -1,19 +1,19 @@
-const path = require("path");
+const path = require('path');
 const include = path.resolve(__dirname, '../');
+const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 
-const genDefaultConfig = require('@storybook/react/dist/server/config/defaults/webpack.config.js');
+// const genDefaultConfig = require('@storybook/react/dist/server/config/defaults/webpack.config.js');
 
-module.exports = (baseConfig, env) => {
-    const config = genDefaultConfig(baseConfig, env);
-
-    config.module.rules.push({
+module.exports = (baseConfig, env, defaultConfig) => {
+    defaultConfig.module.rules.push({
         test: /\.tsx?$/,
         exclude: /node_modules/,
         include: [/src/],
-        loader: "ts-loader"
+        loader: 'ts-loader'
     });
-    config.resolve.extensions.push('.ts', '.tsx');
-    config.resolve.alias['@'] = path.join(include, 'src/')
+    defaultConfig.plugins.push(new TSDocgenPlugin());
+    defaultConfig.resolve.extensions.push('.ts', '.tsx');
+    defaultConfig.resolve.alias['@'] = path.join(include, 'src/')
 
-    return config;
+    return defaultConfig;
 };
