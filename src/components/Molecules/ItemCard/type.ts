@@ -1,6 +1,5 @@
 export interface IProps {
-    title: string,
-    actions?: () => void,
+    title?: string,
+    onClick?: (e: React.MouseEvent<HTMLElement>) => void,
     cardImg: string,
-    class?: string,
 };

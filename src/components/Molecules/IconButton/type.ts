@@ -1,4 +1,3 @@
 export interface IProps {
-    class?: string,
-    onClick: (e: React.MouseEvent<HTMLElement>) => void,
+    onClick?: (e: React.MouseEvent<HTMLElement>) => void,
 };

@@ -4,20 +4,11 @@ import * as React from 'react';
 
 import { IProps } from './type';
 
-export class IconButton extends React.Component<IProps, {}> {
-    public static defaultProps: Partial<IProps> = {
-        class: '',
-    };
-
-    public render() {
-        return (
-            <IconBtn
-                className={this.props.class}
-                onClick={this.props.onClick}
-                color='inherit'
-            >
-                <SettingsIcon/>
-            </IconBtn>
-        );
-    };
-};
+export const IconButton: React.SFC<IProps> = (props: IProps) => (
+    <IconBtn
+        onClick={props.onClick}
+        color='inherit'
+    >
+        <SettingsIcon/>
+    </IconBtn>
+);

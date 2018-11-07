@@ -1,41 +1,34 @@
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { Button } from '@/components/Atoms';
 import { IProps } from './type';
 
-export class ItemCard extends React.Component<IProps, {}> {
-    public static defaultProps: Partial<IProps> = {
-        class: '',
-    };
-
-    public render() {
-        return (
-            <StyledItemCard>
-                <StyledCardImg src={this.props.cardImg}/>
-                <StyledCardContent>
-                    <Typography variant={'h6'}>
-                        {this.props.title}
-                    </Typography>
-                    <Typography variant={'body2'}>
-                        duMMy text
-                        duMMy text
-                        duMMy text
-                        duMMy text
-                        duMMy text
-                    </Typography>
-                    <Button
-                        child={'About'}
-                        onClick={this.props.actions}
-                        color={'primary'}
-                        variant={'flat'}
-                    />
-                </StyledCardContent>
-            </StyledItemCard>
-        );
-    };
-};
+export const ItemCard: React.SFC<IProps> = (props) => (
+    <StyledItemCard>
+        <StyledCardImg src={props.cardImg}/>
+        <StyledCardContent>
+            <Typography variant={'h6'}>
+                {props.title}
+            </Typography>
+            <Typography variant={'body2'}>
+                duMMy text
+                duMMy text
+                duMMy text
+                duMMy text
+                duMMy text
+            </Typography>
+            <Button
+                onClick={props.onClick}
+                color={'primary'}
+                variant={'text'}
+            >
+                About
+            </Button>
+        </StyledCardContent>
+    </StyledItemCard>
+);
 
 const StyledItemCard = styled.div`
     background: #fff;
