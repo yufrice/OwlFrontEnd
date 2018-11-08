@@ -1,21 +1,8 @@
 export interface IProps {
-    class?: string,
-    color?: Color,
-    onClick: (e: React.MouseEvent<HTMLElement>) => void,
-    position?: Position,
+    onClick?: (e: React.MouseEvent<HTMLElement>) => void,
+    onClose?: () => void,
+    onChange?: (e: React.ChangeEvent<{}>, value: number) => void,
+    tabIndex?: number,
+    configView?: React.ReactNode,
+    configActive?: boolean,
 };
-
-export interface IState {
-    configOpen: boolean,
-    tabIndex: number,
-};
-
-type Color = 'inherit'
-    | 'primary'
-    | 'secondary'
-    | 'default'
-
-type Position = 'fixed'
-    | 'absolute'
-    | 'sticky'
-    | 'static'

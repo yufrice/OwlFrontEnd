@@ -8,82 +8,54 @@ import * as React from 'react';
 import styled from "styled-components"
 
 import { IconButton, Modal } from '@/components/Molecules'
-import { IProps, IState } from './type';
+import { ConfigView } from '@/components/Organisms/ConfigView';
+import { IProps } from './type';
 
 
-export class GlobalHeader extends React.Component<IProps, IState> {
-
-    public static defaultProps: Partial<IProps> = {
-        class: '',
-        color: 'default',
-        position: 'fixed',
-    };
-
-    constructor(props: IProps) {
-        super(props);
-
-        this.state = {
-            configOpen: false,
-            tabIndex: 0,
-        };
-    };
-
-    public render() {
-        return (
-            <StyledHeader>
-                <AppBar
-                    className={this.props.class}
-                    position={this.props.position}
-                    color={this.props.color}
+export const GlobalHeader: React.SFC<IProps> = (props) => (
+    <StyledHeader>
+        <AppBar
+            position='fixed'
+            color='default'
+        >
+            <Toolbar>
+                <Title
+                    variant={'h6'}
+                    color={'inherit'}
                 >
-                    <Toolbar>
-                        <Title
-                            variant={'h6'}
-                            color={'inherit'}
-                         >
-                            TITLE
-                        </Title>
-                        <IconButton
-                            onClick={this.handleOpenToggle}
-                        >
-                            <MenuIcon/>
-                        </IconButton>
-                    </Toolbar>
-                    <Tabs
-                        value={this.state.tabIndex}
-                        onChange={this.handleTabChange}
-                    >
-                        <Tab label={'Search'}/>
-                        <Tab label={'Config'}/>
-                        <Tab label={'Login'}/>
-                    </Tabs>
-                </AppBar>
-                <Modal
-                    child={'Config'}
-                    open={this.state.configOpen}
-                    onClose={this.closeHandler}
-                    size={[80, 80]}
-                />
-            </StyledHeader>
-        );
-    };
+                    TITLE
+                </Title>
+                <IconButton
+                    onClick={props.onClick}
+                >
+                    <MenuIcon/>
+                </IconButton>
+            </Toolbar>
+            <Tabs
+                value={props.tabIndex}
+                onChange={props.onChange}
+            >
+                <Tab label={'Search'}/>
+                <Tab label={'Edit'}/>
+                <Tab label={'Logout'}/>
+            </Tabs>
+        </AppBar>
+        <Modal
+            open={props.configActive}
+            onClose={props.onClose}
+            child={<ConfigView/>}
+        />
+    </StyledHeader>
+);
 
-    private handleOpenToggle = () => {
-        this.setState({ configOpen: true });
-    };
-
-    private closeHandler = () => {
-        this.setState({ configOpen: false });
-    };
-
-    private handleTabChange = (event: React.ChangeEvent, index: number) => {
-        this.setState({ tabIndex: index });
-    };
-
+GlobalHeader.defaultProps = {
+    tabIndex: 0,
+    configActive: false,
 };
 
 const StyledHeader = styled.div`
     flex-grow: 1;
+    height: 160px;
 `;
 
 const Title = styled(Typography)`
