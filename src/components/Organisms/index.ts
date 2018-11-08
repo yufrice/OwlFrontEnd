@@ -1,3 +1,4 @@
 import { GlobalHeader } from './GlobalHeader';
+import { ConfigView } from './ConfigView';
 
-export { GlobalHeader }
+export { ConfigView, GlobalHeader }
