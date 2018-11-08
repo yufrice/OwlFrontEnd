@@ -36,7 +36,7 @@ export const SearchForm: React.SFC<IProps> = (props) => (
                     fullWidth={true}
                 />
             </Grid>
-            <Grid item={true}>
+            <Grid item={true} container={true} justify={'flex-end'}>
                 <Button
                     color={'secondary'}
                     onClick={clearForm}
