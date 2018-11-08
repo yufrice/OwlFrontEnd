@@ -7,7 +7,11 @@ import { ItemCard } from './ItemCard';
 storiesOf('Molecules', module)
     .addDecorator(centered)
     .add('ItemCard', () =>
-        <ItemCard title={'ItemCatd'} cardImg={demoImg}/>
+        <ItemCard
+            title={'ItemCatd'}
+            body={'dummyddummydummydummydummydummydummydummydummydummydummyummy'}
+            cardImg={demoImg}
+        />
     );
 
 const demoImg = 'https://pbs.twimg.com/media/DoWC48iUwAAnfj3.jpg';
