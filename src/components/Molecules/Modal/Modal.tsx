@@ -4,32 +4,27 @@ import styled from 'styled-components';
 
 import { IProps } from './type';
 
+export const Modal: React.SFC<IProps> = (props) => (
+    <_Modal
+        open={props.open!}
+        onClose={props.onClose}
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+    >
+        <StyledModalContent
+            size={props.size!}
+        >
+            {props.child}
+        </StyledModalContent>
+    </_Modal>
+);
 
-export class Modal extends React.Component<IProps, {}> {
-    public static defaultProps: Partial<IProps> = {
-        class: '',
-        size: [50, 50],
-    };
-
-    public render() {
-        return (
-            <_Modal
-                open = {this.props.open}
-                onClose = {this.props.onClose}
-                aria-labelledby="modal-title"
-                aria-describedby="modal-description"
-            >
-                <StyledModalContent
-                    size={this.props.size}
-                >
-                    {this.props.child}
-                </StyledModalContent>
-            </_Modal>
-        );
-    };
+Modal.defaultProps = {
+    open: false,
+    size: [50, 50],
 };
 
-const StyledModalContent = styled.div<{size: any}>`
+const StyledModalContent = styled.div<{size: [number, number]}>`
     width: ${props => props.size[0]}%;
     height: ${props => props.size[1]}%;
     position: fixed;

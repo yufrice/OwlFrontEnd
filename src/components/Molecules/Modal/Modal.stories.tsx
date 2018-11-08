@@ -6,21 +6,6 @@ import * as React from 'react';
 
 import { Modal } from '@/components/Molecules';
 
-const store = new Store({
-    active: false
-});
-
-const openHandler = () => {
-    return store.set({
-        active: true
-    });
-};
-
-const closeHandler = () => {
-    return store.set({
-        active: false
-    });
-};
 
 storiesOf('Molecules', module)
     .addDecorator(centered)
@@ -50,3 +35,18 @@ storiesOf('Molecules', module)
             </div>
     );
 
+const store = new Store({
+    active: false,
+});
+
+const openHandler = () => {
+    return store.set({
+        active: true,
+    });
+};
+
+const closeHandler = () => {
+    return store.set({
+        active: false,
+    });
+};
