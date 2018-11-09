@@ -7,9 +7,9 @@ import { Item } from './type';
 
 storiesOf('Organisms/SearchResult', module)
     .add('Result', () =>
-        <SearchResult items={items}/>
+        <SearchResult items={items} searchState={'found'}/>
     ).add('NotFound', () =>
-        <SearchResult items={[]}/>
+        <SearchResult items={[]} searchState={'notFound'}/>
     );
 
 

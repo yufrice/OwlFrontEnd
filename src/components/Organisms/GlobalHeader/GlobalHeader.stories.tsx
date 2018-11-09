@@ -1,4 +1,4 @@
-import { State,  Store } from "@sambego/storybook-state";
+import { State,  Store } from '@sambego/storybook-state';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
