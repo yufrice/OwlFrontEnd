@@ -1,10 +1,10 @@
-import Paper from '@material-ui/core/Paper';
-import styled from "styled-components"
-import Grid from '@material-ui/core/Grid';
-import Typographty from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import Typographty from '@material-ui/core/Typography';
 import * as React from 'react';
+import styled from "styled-components"
 
 import { IProps } from './type';
 
@@ -55,7 +55,7 @@ export const SearchForm: React.SFC<IProps> = (props) => (
 );
 
 const clearForm = () => {
-    console.log('');
+    return null;
 };
 
 const StyledPaper = styled(Paper)`
