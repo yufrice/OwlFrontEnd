@@ -1,20 +1,18 @@
-import { MuiThemeProvider } from '@material-ui/core/styles';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 
-import App from './App';
-import { theme } from './components/Atoms/Theme';
+import App from '@/components/Pages/App';
+import { generateStore } from '@reducers';
 import './index.css';
 
-const Root = () => (
-    <MuiThemeProvider theme = {theme}>
-        <App/>
-    </MuiThemeProvider>
-);
+const store = generateStore();
 
 ReactDOM.render(
-    <Root />,
-  document.getElementById('root') as HTMLElement
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();

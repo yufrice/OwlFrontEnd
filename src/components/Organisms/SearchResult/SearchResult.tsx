@@ -1,11 +1,11 @@
-import Grid from '@material-ui/core/Grid';
-import * as React from 'react';
-
 import { ItemCard } from '@/components/Molecules';
-import { IProps, Item } from './type';
+import Grid from '@material-ui/core/Grid';
 
-export const SearchResult: React.SFC<IProps> = (props) => {
-    const itemList = (item: Item) => {
+import * as React from 'react';
+import * as Type from './type';
+
+export const SearchResult: React.SFC<Type.IProps> = (props: Type.IProps) => {
+    const itemList = (item: Type.Item) => {
         return <Grid item={true} key={item.name}>
             <ItemCard
                 title={item.name}
@@ -13,9 +13,23 @@ export const SearchResult: React.SFC<IProps> = (props) => {
             />
         </Grid>
     };
-    return props.items.length !== 0
-        && <Grid container={true} spacing={24}>
-            {props.items.map(itemList)}
-           </Grid>
-        || <div> 'not found' </div>;
+    if(Type.isFound(props)) {
+        return <Grid container={true} spacing={24}>
+            {props.items ? props.items.map(itemList) : null}
+        </Grid>;
+    } else if(Type.isNotFound(props)) {
+        return <div> not found </div>
+    } else if(Type.isProcessing(props)) {
+        return <div> loading </div>
+    } else if(Type.isError(props)) {
+        return <div> error </div>
+    } else if(Type.isInit(props)) {
+        return <div> init </div>
+    };
+    return null;
+};
+
+SearchResult.defaultProps = {
+    items: [],
+    searchState: 'init',
 };
