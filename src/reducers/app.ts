@@ -85,6 +85,6 @@ const items: (n: number) => Item[]  = (num: number) => {
             name: 'ITEM'+n.toString(),
             desc: '',
             word: '',
-            imgSrc: dummyImage([sizeSlide[n], sizeSlide[9-n]]),
+            image: dummyImage([sizeSlide[n], sizeSlide[9-n]]),
         }));
 };

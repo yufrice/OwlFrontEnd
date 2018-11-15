@@ -10,7 +10,7 @@ storiesOf('Molecules', module)
         <ItemCard
             title={'ItemCatd'}
             body={'dummyddummydummydummydummydummydummydummydummydummydummyummy'}
-            cardImg={demoImg}
+            image={demoImg}
         />
     );
 

@@ -1,3 +1,5 @@
+import { Item } from '@models/app';
+
 export interface IProps {
     items?: Item[],
     searchState?: SearchState,
@@ -19,11 +21,4 @@ export const isNotFound = (prop : any): prop is IProps =>
 
 export const isError = (prop : any): prop is IProps =>
     prop.searchState === 'error';
-
-
-export interface Item {
-    id: string,
-    name: string,
-    imgSrc: string,
-};
 

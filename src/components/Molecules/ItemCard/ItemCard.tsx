@@ -9,7 +9,7 @@ import { IProps } from './type';
 
 export const ItemCard: React.SFC<IProps> = (props) => (
     <StyledItemCard>
-        <StyledCardImg src={props.cardImg}/>
+        <StyledCardImg src={props.image}/>
         <StyledContent container={true} spacing={16}>
             <Grid item={true}>
                 <Typography variant={'h6'}>

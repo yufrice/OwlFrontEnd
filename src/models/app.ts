@@ -15,5 +15,5 @@ export interface Item {
     name: string,
     desc: string,
     word: string,
-    imgSrc: string,
+    image: string,
 };

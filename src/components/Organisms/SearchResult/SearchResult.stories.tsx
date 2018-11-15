@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import { randomBytes } from 'crypto';
 import { SearchResult } from './SearchResult';
-import { Item } from './type';
 
 
 storiesOf('Organisms/SearchResult', module)
@@ -21,11 +20,11 @@ const dummyImge = (size: [number, number]) => (
 const sizeSlide = Array.from(Array(10).keys())
     .map((n)=> (n+1) * 10 + 150);
 
-const items: Item[]  = Array.from(Array(10).keys())
+const items: any[]  = Array.from(Array(10).keys())
     .map((n: number) => (
         {
             id: randomBytes(8).toString('hex'),
             name: 'ITEM'+n.toString(),
-            imgSrc: dummyImge([sizeSlide[n], sizeSlide[9-n]]),
+            image: dummyImge([sizeSlide[n], sizeSlide[9-n]]),
         }));
 

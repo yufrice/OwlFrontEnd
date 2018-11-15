@@ -1,15 +1,16 @@
 import { ItemCard } from '@/components/Molecules';
+import { Item } from '@models/app';
 import Styled from 'styled-components';
 
 import * as React from 'react';
 import * as Type from './type';
 
 export const SearchResult: React.SFC<Type.IProps> = (props: Type.IProps) => {
-    const itemList = (item: Type.Item) => {
+    const itemList = (item: Item) => {
         return <ItemCard
             key={item.id}
             title={item.name}
-            cardImg={item.imgSrc}
+            image={item.image}
         />
     };
     if('found' === props.searchState) {
