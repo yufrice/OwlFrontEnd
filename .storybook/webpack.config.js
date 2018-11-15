@@ -13,7 +13,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
     });
     defaultConfig.plugins.push(new TSDocgenPlugin());
     defaultConfig.resolve.extensions.push('.ts', '.tsx');
-    defaultConfig.resolve.alias['@'] = path.join(include, 'src/')
+    defaultConfig.resolve.alias['@'] = path.join(include, 'src')
 
     return defaultConfig;
 };

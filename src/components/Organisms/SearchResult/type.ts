@@ -22,6 +22,7 @@ export const isError = (prop : any): prop is IProps =>
 
 
 export interface Item {
+    id: string,
     name: string,
     imgSrc: string,
 };

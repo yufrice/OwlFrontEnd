@@ -39,7 +39,7 @@ const StyledItemCard = styled.div`
     border-radius: 5px;
     box-shadow: 0 2px 5px #ccc;
     display: inline-block;
-    margin: 30px auto;
+    margin: 10px 10px;
     min-height: 60px;
     width: 250px;
 `;

@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
+import { randomBytes } from 'crypto';
 import { SearchResult } from './SearchResult';
 import { Item } from './type';
 
@@ -23,6 +24,7 @@ const sizeSlide = Array.from(Array(10).keys())
 const items: Item[]  = Array.from(Array(10).keys())
     .map((n: number) => (
         {
+            id: randomBytes(8).toString('hex'),
             name: 'ITEM'+n.toString(),
             imgSrc: dummyImge([sizeSlide[n], sizeSlide[9-n]]),
         }));

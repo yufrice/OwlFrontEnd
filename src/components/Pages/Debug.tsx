@@ -12,9 +12,15 @@ import { IRootState } from '@reducers';
 type Props =  IRootState & Action.Type;
 
 
-const App: React.SFC<Props> = (props) => {
+const Debug: React.SFC<Props> = (props) => {
+        const {
+            searchError,
+            testFond,
+        } = props;
         return (
             <StyledDiv>
+                <button onClick={searchError}> init </button>
+                <button onClick={testFond}> found </button>
                 <SearchView {...props.app} {...props} />
             </StyledDiv>
         );
@@ -36,4 +42,4 @@ export default connect(
         bindActionCreators(
             {...AApp.actions, ...UI.actions}, dispatch
         )
-)(App);
+)(Debug);

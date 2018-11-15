@@ -10,7 +10,7 @@ interface IOpenConfigViewAction extends Action {
     type: ActionType.openConfigView,
 };
 
-export const openConfigView = (): IOpenConfigViewAction => ({
+const openConfigView = (): IOpenConfigViewAction => ({
     type: ActionType.openConfigView,
 });
 
@@ -19,7 +19,7 @@ interface ICloseConfigViewAction extends Action {
     type: ActionType.closeConfigView,
 };
 
-export const closeConfigView = (): ICloseConfigViewAction => ({
+const closeConfigView = (): ICloseConfigViewAction => ({
     type: ActionType.closeConfigView,
 });
 
@@ -31,7 +31,7 @@ interface IChangeTab extends Action {
 
 };
 
-export const changeTab = (event: any, index: number): IChangeTab => ({
+export const changeTab = (e: React.ChangeEvent<HTMLElement>, index: number): IChangeTab => ({
     type: ActionType.changeTab,
     payload: {
         index,

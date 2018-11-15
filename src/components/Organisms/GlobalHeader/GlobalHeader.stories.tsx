@@ -34,7 +34,7 @@ const closeHandler = () => {
     });
 };
 
-const changeHandler = (event: React.ChangeEvent, value: number) => {
+const changeHandler = (e: any, value: number) => {
     return store.set({
         tabIndex: value,
     });

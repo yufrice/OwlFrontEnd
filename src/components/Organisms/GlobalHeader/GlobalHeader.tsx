@@ -5,7 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import * as React from 'react';
-import styled from "styled-components"
+import { Link } from 'react-router-dom';
+import styled from 'styled-components'
 
 import { IconButton, Modal } from '@/components/Molecules'
 import { ConfigView } from '@/components/Organisms/ConfigView';
@@ -15,7 +16,7 @@ import { IProps } from './type';
 export const GlobalHeader: React.SFC<IProps> = (props) => (
     <StyledHeader>
         <AppBar
-            position='fixed'
+            position='absolute'
             color='default'
         >
             <Toolbar>
@@ -31,14 +32,29 @@ export const GlobalHeader: React.SFC<IProps> = (props) => (
                     <MenuIcon/>
                 </IconButton>
             </Toolbar>
-            <Tabs
+            <StyledTabs
                 value={props.tabIndex}
                 onChange={props.onChange}
+                fullWidth={true}
             >
-                <Tab label={'Search'}/>
-                <Tab label={'Edit'}/>
-                <Tab label={'Logout'}/>
-            </Tabs>
+                <Tab key={'Search'}
+                     label={'Search'}
+                     component={Link}
+                     {...{ to: '/'} as any}
+                />
+                <Tab
+                    key={'Edit'}
+                    label={'Edit'}
+                    component={Link}
+                    {...{ to: '/edit'} as any}
+                />
+                <Tab
+                    key={'Debug'}
+                    label={'Debug'}
+                    component={Link}
+                    {...{ to: '/debug'} as any}
+                />
+            </StyledTabs>
         </AppBar>
         <Modal
             open={props.configActive}
@@ -54,8 +70,12 @@ GlobalHeader.defaultProps = {
 };
 
 const StyledHeader = styled.div`
-    flex-grow: 1;
-    height: 160px;
+    height: 150px;
+    width: 100%;
+`;
+
+const StyledTabs = styled(Tabs)`
+    padding: 0 10px;
 `;
 
 const Title = styled(Typography)`

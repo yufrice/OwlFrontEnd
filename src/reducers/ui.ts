@@ -6,7 +6,7 @@ export interface IUIState {
 };
 
 
-const initialState: IUIState ={
+const initialState: IUIState = {
     configActive: false,
     tabIndex: 0,
 };
@@ -18,7 +18,7 @@ export const uiReducer = (state: IUIState = initialState, action: Type): IUIStat
         case ActionType.closeConfigView:
             return {configActive: false, tabIndex: state.tabIndex};
         case ActionType.changeTab:
-            return {configActive: state.configActive, tabIndex: action.payload.index }
+            return {configActive: state.configActive, tabIndex: action.payload.index};
         default:
             return state;
     };
