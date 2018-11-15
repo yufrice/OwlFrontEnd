@@ -90,14 +90,16 @@ interface ISearchRequestGet extends Action {
     type: ActionType.searchRequestGet,
     meta: {
         inputs: Array<{}>,
+        word: string,
     },
 };
 
-export const searchRequestGet = (ipts: Array<{}>): ISearchRequestGet => {
+export const searchRequestGet = (ipts: Array<{}>, wrd: string): ISearchRequestGet => {
     return{
         type: ActionType.searchRequestGet,
         meta: {
             inputs: ipts,
+            word: wrd,
         },
     }};
 

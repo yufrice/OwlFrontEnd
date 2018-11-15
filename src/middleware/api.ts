@@ -13,7 +13,7 @@ export const api: Middleware = (store: MiddlewareAPI) =>
                     return next(action);
                 case ActionType.searchRequestGet:
                     const params = new URLSearchParams();
-                    Seq(action.meta.inputs)
+                    Seq([{word: action.meta.word}].concat(action.meta.inputs))
                         .slice(0,5)
                         .map((str: any) => params.append('search', str.word))
                         .toArray();
@@ -46,7 +46,7 @@ export const api: Middleware = (store: MiddlewareAPI) =>
                                 if (0 === res.result.length) {
                                     return next({type: ActionType.notFound});
                                 } else {
-                                    store.dispatch(searchRequestGet(res.result));
+                                    store.dispatch(searchRequestGet(res.result, store.getState().app.inputs.input0));
                                     return action;
                                 }
                             },
