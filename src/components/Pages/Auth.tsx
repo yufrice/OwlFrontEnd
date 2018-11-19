@@ -22,6 +22,8 @@ class Auth extends React.Component<Props, {}> {
                         onClose={this.props.closeConfigView}
                         onChange={this.props.changeTab}
                         logoutHandler={this.props.logoutHandler}
+                        tabIndex={this.props.ui.tabIndex}
+                        configActive={this.props.ui.configActive}
                     />
                     <Route children={this.props.children}/>
                 </div>
