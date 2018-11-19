@@ -2,8 +2,8 @@
   "name": "owl-webapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
-  "proxy": "http://localhost:8484/",
+  "homepage": ".",
+  "proxy": "http://localhost:8484/api",
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
     "node-fetch": "^2.3.0",

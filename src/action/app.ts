@@ -12,6 +12,8 @@ export enum ActionType {
     invalidate = 'INVALIDATE',
     searchRequestGet = 'SEARCH_REQUEST_GET',
     searchRequestReceive = 'SEARCH_REQUEST_RECEIVE',
+    login = 'LOGIN',
+    logout = 'LOGOUT',
 };
 
 interface ITestFond extends Action {
@@ -123,8 +125,23 @@ export const searchRequestReceive = (res: Array<{}>): ISearchRequestReceive => (
     },
 });
 
+interface ILogin extends Action {
+    type: ActionType.login,
+};
 
-export type Type = ITestFond | IError | IInitForm | IStateFound | INotFound | IChangeForm | ISubmitSearch | IInvalidate | ISearchRequestGet | ISearchRequestReceive;
+export const loginHandler = (): ILogin => ({
+    type :ActionType.login,
+});
+
+interface ILogout extends Action {
+    type: ActionType.logout,
+};
+
+export const logoutHandler = (): ILogout => ({
+    type :ActionType.logout,
+});
+
+export type Type = ITestFond | IError | IInitForm | IStateFound | INotFound | IChangeForm | ISubmitSearch | IInvalidate | ISearchRequestGet | ISearchRequestReceive | ILogin | ILogout;
 
 export const actions = {
     testFond,
@@ -137,4 +154,6 @@ export const actions = {
     invalidate,
     searchRequestGet,
     searchRequestReceive,
+    loginHandler,
+    logoutHandler,
 };

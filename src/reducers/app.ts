@@ -1,5 +1,5 @@
 import { ActionType, Type } from '@/action/app';
-import {IAppState, Inputs,Item} from '@models/app';
+import { IAppState, Inputs, Item } from '@models/app';
 import { randomBytes } from 'crypto';
 
 const initInput: Inputs = {
@@ -10,6 +10,7 @@ const initInput: Inputs = {
 
 const initialState: IAppState = {
     state: 'init',
+    authState: false,
     inputs: initInput,
     result: undefined,
 };
@@ -17,15 +18,35 @@ const initialState: IAppState = {
 export const appReducer = (state: IAppState = initialState, action: Type): IAppState => {
     switch (action.type) {
         case ActionType.debug:
-            return {state: 'found', inputs: initInput, result: items(Math.floor(Math.random() * 20))};
+            return {
+                state: 'found',
+                authState: state.authState,
+                inputs: initInput,
+                result: items(Math.floor(Math.random() * 20)),
+            };
         case ActionType.error:
             return initialState;
         case ActionType.initForm:
-            return {state: 'init', inputs: initInput, result: undefined};
+            return {
+                state: 'init',
+                authState: state.authState,
+                inputs: initInput,
+                result: undefined,
+            };
         case ActionType.stateFound:
-            return {state: 'found', inputs: state.inputs, result: state.result};
+            return {
+                state: 'found',
+                authState: state.authState,
+                inputs: state.inputs,
+                result: state.result,
+            };
         case ActionType.notFound:
-            return {state: 'notFound', inputs: state.inputs, result: undefined};
+            return {
+                state: 'notFound',
+                authState: state.authState,
+                inputs: state.inputs,
+                result: undefined,
+            };
         case ActionType.changeForm:
             const newInput = ((input: any) => {
                 switch (input.name) {
@@ -53,6 +74,7 @@ export const appReducer = (state: IAppState = initialState, action: Type): IAppS
             })(action.payload.input);
             return {
                 state: state.state,
+                authState: state.authState,
                 inputs: newInput,
                 result: state.result,
             };
@@ -63,8 +85,23 @@ export const appReducer = (state: IAppState = initialState, action: Type): IAppS
         case ActionType.searchRequestReceive:
             return {
                 state: state.state,
+                authState: state.authState,
                 inputs: state.inputs,
                 result: action.payload.items,
+            };
+        case ActionType.login :
+            return {
+                state: state.state,
+                authState: true,
+                inputs: state.inputs,
+                result: state.result,
+            };
+        case ActionType.logout:
+            return {
+                state: state.state,
+                authState: false,
+                inputs: state.inputs,
+                result: state.result,
             };
         default:
             return state;

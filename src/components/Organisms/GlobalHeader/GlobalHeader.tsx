@@ -1,4 +1,5 @@
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -26,6 +27,9 @@ export const GlobalHeader: React.SFC<IProps> = (props) => (
                 >
                     TITLE
                 </Title>
+                <Button onClick={props.logoutHandler}>
+                    LogOut
+                </Button>
                 <IconButton
                     onClick={props.onClick}
                 >

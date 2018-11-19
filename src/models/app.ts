@@ -1,5 +1,6 @@
 export interface IAppState  {
     state: 'init' | 'processing' | 'found' | 'notFound' | 'error',
+    authState: boolean,
     inputs: Inputs,
     result: Item[] | undefined,
 };

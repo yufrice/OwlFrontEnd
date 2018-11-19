@@ -62,11 +62,11 @@ export const api: Middleware = (store: MiddlewareAPI) =>
 
 const getVector = async (query: string) => {
     const parameter =  '?search=' + query;
-    return await fetch('/vector' + parameter);
+    return await fetch('/api/vector' + parameter);
 };
 
 const getItem = async (query: URLSearchParams) => {
-    return await fetch('/item?'+query.toString());
+    return await fetch('/api/item?'+query.toString());
 };
 
 const statusCheck = (res: Response) => {
