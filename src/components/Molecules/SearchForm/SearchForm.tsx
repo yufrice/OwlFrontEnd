@@ -5,7 +5,7 @@ import Typographty, { TypographyProps } from '@material-ui/core/Typography';
 import * as React from 'react';
 import styled from 'styled-components';
 
-export const SearchForm: React.SFC<any> = props => (
+export const SearchForm: React.SFC<any> = (props) => (
   <StyledPaper>
     <StyledTypography variant={'h6'}>Search</StyledTypography>
     <StyledGridInput0>
@@ -61,8 +61,14 @@ const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
   display: grid;
   grid-gap: 10px 15px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 1fr 1fr 1fr 0.5fr;
-  grid-template-areas: 'Label Label . . .' '. Input0 Input0 Input0 .' '. Input1 Input1 Input1 .' '. Input2 Input2 Input2 .' '. . . Button0 Button1';
+  grid-template-rows: 0.5fr 1fr 1fr 1fr 0.5fr 0.5fr;
+  grid-template-areas:
+    'Label Label . . .'
+    '. Input0 Input0 Input0 .'
+    '. Input1 Input1 Input1 .'
+    '. Input2 Input2 Input2 .'
+    '. . . . .'
+    '. . . Button0 Button1';
 `;
 
 const StyledTypography = styled(Typographty as React.SFC<TypographyProps>)`
