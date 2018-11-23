@@ -21,7 +21,7 @@ export const SearchResult: React.SFC<Type.IProps> = (props: Type.IProps) => {
         return <div> not found </div>
     } else if(Type.isProcessing(props.searchState)) {
         return <div> loading </div>
-    } else if(Type.isError(props.searchState)) {
+    } else if('error' === props.searchState) {
         return <div> error </div>
     } else if(Type.isInit(props.searchState)) {
         return null;

@@ -61,7 +61,7 @@ export const api: Middleware = (store: MiddlewareAPI) =>
         };
 
 const getVector = async (query: string) => {
-    const parameter =  '?search=' + query;
+    const parameter =  '?word=' + query;
     return await fetch('/api/vector' + parameter);
 };
 

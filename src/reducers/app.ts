@@ -25,7 +25,12 @@ export const appReducer = (state: IAppState = initialState, action: Type): IAppS
                 result: items(Math.floor(Math.random() * 20)),
             };
         case ActionType.error:
-            return initialState;
+            return {
+                state: 'error',
+                authState: state.authState,
+                inputs: state.inputs,
+                result: state.result,
+            };
         case ActionType.initForm:
             return {
                 state: 'init',
