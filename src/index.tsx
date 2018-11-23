@@ -16,28 +16,30 @@ import rootReducer from '@/reducers';
 import Router from './Router';
 
 const logger = createLogger({
-    collapsed: true,
-    diff: true,
+  collapsed: true,
+  diff: true,
 });
 const history = createBrowserHistory();
-const store = createStore(rootReducer(history),
-    compose(
-        applyMiddleware(api),
-        applyMiddleware(logger),
-        applyMiddleware(routerMiddleware(history)),
-    ));
+const store = createStore(
+  rootReducer(history),
+  compose(
+    applyMiddleware(routerMiddleware(history)),
+    applyMiddleware(api),
+    applyMiddleware(logger),
+  ),
+);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <MuiThemeProvider theme={theme}>
-            <BrowserRouter>
-                {/*<ConnectedRouter history={history}>*/}
-                <Router />
-                {/*</ConnectedRouter>*/}
-            </BrowserRouter>
-        </MuiThemeProvider>
-    </Provider>,
-    document.getElementById('root') as HTMLElement
+  <Provider store={store}>
+    <MuiThemeProvider theme={theme}>
+      <BrowserRouter>
+        {/*<ConnectedRouter history={history}>*/}
+        <Router />
+        {/*</ConnectedRouter>*/}
+      </BrowserRouter>
+    </MuiThemeProvider>
+  </Provider>,
+  document.getElementById('root') as HTMLElement,
 );
 
 registerServiceWorker();
