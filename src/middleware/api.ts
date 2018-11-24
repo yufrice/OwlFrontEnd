@@ -39,9 +39,6 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
 
       return next(action);
     case ActionType.submitSearch:
-      if (store.getState().form.searchForm.values.word0.length === 0) {
-        return next(action);
-      }
       getVector(store.getState().form.searchForm.values.word0)
         .then((res) => statusCheck(res))
         .then((res) => res.json())

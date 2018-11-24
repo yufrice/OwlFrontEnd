@@ -40,6 +40,7 @@ class SearchForm extends React.PureComponent<InjectedFormProps<any>> {
             color={'secondary'}
             onClick={this.props.reset}
             type='reset'
+            disabled={this.props.pristine || this.props.submitting}
             variant={'contained'}
           >
             Clear
@@ -48,6 +49,7 @@ class SearchForm extends React.PureComponent<InjectedFormProps<any>> {
             color={'primary'}
             onClick={this.props.handleSubmit}
             type='button'
+            disabled={this.props.pristine}
             variant={'contained'}
           >
             Submit
