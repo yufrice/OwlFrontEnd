@@ -39,10 +39,10 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
 
       return next(action);
     case ActionType.submitSearch:
-      if (store.getState().app.inputs.input0.length === 0) {
+      if (store.getState().form.searchForm.values.word0.length === 0) {
         return next(action);
       }
-      getVector(store.getState().app.inputs.input0)
+      getVector(store.getState().form.searchForm.values.word0)
         .then((res) => statusCheck(res))
         .then((res) => res.json())
         .then((res) => {
@@ -50,7 +50,10 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
             return next({ type: ActionType.notFound });
           } else {
             store.dispatch(
-              searchRequestGet(res.result, store.getState().app.inputs.input0),
+              searchRequestGet(
+                res.result,
+                store.getState().form.searchForm.values.word0,
+              ),
             );
             return action;
           }

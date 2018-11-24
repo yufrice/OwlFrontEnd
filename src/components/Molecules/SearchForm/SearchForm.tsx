@@ -46,7 +46,7 @@ class SearchForm extends React.PureComponent<InjectedFormProps<any>> {
           </StyledGridButton0>
           <StyledGridButton1
             color={'primary'}
-            // onClick={this.props.submitSearch}
+            onClick={this.props.handleSubmit}
             type='button'
             variant={'contained'}
           >
@@ -60,6 +60,7 @@ class SearchForm extends React.PureComponent<InjectedFormProps<any>> {
 
 export default reduxForm({
   form: 'searchForm',
+  initialValues: { word0: '' },
 })(SearchForm);
 
 const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
