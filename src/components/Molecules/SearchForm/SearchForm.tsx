@@ -1,52 +1,44 @@
+import { TextField } from '@/components/Atoms';
 import Button, { ButtonProps } from '@material-ui/core/Button';
 import Paper, { PaperProps } from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
 import Typographty, { TypographyProps } from '@material-ui/core/Typography';
 import * as React from 'react';
+import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 import styled from 'styled-components';
 
-export class SearchForm extends React.PureComponent<any> {
+class SearchForm extends React.PureComponent<InjectedFormProps<any>> {
   public render() {
     return (
       <form>
         <StyledPaper>
           <StyledTypography variant={'h6'}>Search</StyledTypography>
           <StyledGridInput0>
-            <TextField
-              label={'word1'}
-              name={'word0'}
-              key={'word0'}
-              fullWidth={true}
+            <Field
+              name='word0'
+              label='Word 0'
+              component={TextField}
               type='search'
-              value={this.props.inputs.input0}
-              onChange={this.props.changeForm}
             />
           </StyledGridInput0>
           <StyledGridInput1>
-            <TextField
-              label={'word2'}
-              name={'word1'}
-              key={'word1'}
-              fullWidth={true}
+            <Field
+              name='word1'
+              label='Word 1'
+              component={TextField}
               type='search'
-              value={this.props.inputs.input1}
-              onChange={this.props.changeForm}
             />
           </StyledGridInput1>
           <StyledGridInput2>
-            <TextField
-              label={'word3'}
-              name={'word2'}
-              key={'word2'}
-              fullWidth={true}
+            <Field
+              name='word2'
+              label='Word 2'
+              component={TextField}
               type='search'
-              value={this.props.inputs.input2}
-              onChange={this.props.changeForm}
             />
           </StyledGridInput2>
           <StyledGridButton0
             color={'secondary'}
-            onClick={this.props.initForm}
+            onClick={this.props.reset}
             type='reset'
             variant={'contained'}
           >
@@ -54,7 +46,7 @@ export class SearchForm extends React.PureComponent<any> {
           </StyledGridButton0>
           <StyledGridButton1
             color={'primary'}
-            onClick={this.props.submitSearch}
+            // onClick={this.props.submitSearch}
             type='button'
             variant={'contained'}
           >
@@ -65,6 +57,10 @@ export class SearchForm extends React.PureComponent<any> {
     );
   }
 }
+
+export default reduxForm({
+  form: 'searchForm',
+})(SearchForm);
 
 const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
   padding: 20px;

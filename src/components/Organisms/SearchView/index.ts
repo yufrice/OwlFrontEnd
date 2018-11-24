@@ -1,3 +1,3 @@
 import { SearchView } from './SearchView';
 
-export { SearchView }
+export { SearchView };

@@ -9,7 +9,7 @@ export class SearchView extends React.PureComponent<any> {
     return (
       <StyledView>
         <StyledForm>
-          <SearchForm value={this.props.input} {...this.props} />
+          <SearchForm />
         </StyledForm>
         <SearchResult
           items={this.props.result}
