@@ -14,23 +14,27 @@ import { IRootState } from '@reducers';
 
 type Props = IRootState & Action.Type;
 
-const Edit: React.SFC<Props> = (props: Props) => (
-  <StyledPaper>
-    <StyledButton onClick={props.openAddItem} variant='contained'>
-      Add
-    </StyledButton>
-    <Modal
-      open={props.ui.addItemActive}
-      onClose={props.closeAddItem}
-      child={
-        <AddItem
-          changeInput={props.changeInput}
-          input={props.app.addItem.input}
+class Edit extends React.PureComponent<Props> {
+  public render() {
+    return (
+      <StyledPaper>
+        <StyledButton onClick={this.props.openAddItem} variant='contained'>
+          Add
+        </StyledButton>
+        <Modal
+          open={this.props.ui.addItemActive}
+          onClose={this.props.closeAddItem}
+          child={
+            <AddItem
+              changeInput={this.props.changeInput}
+              input={this.props.app.addItem.input}
+            />
+          }
         />
-      }
-    />
-  </StyledPaper>
-);
+      </StyledPaper>
+    );
+  }
+}
 
 const StyledPaper = styled(Paper as React.SFC<PaperProps>)``;
 

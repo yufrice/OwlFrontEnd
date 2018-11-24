@@ -11,15 +11,17 @@ import { IRootState } from '@reducers';
 
 type Props = IRootState & Action.Type;
 
-const Login: React.SFC<Props> = (props: Props) => {
-  return props.app.authState ? (
-    <Redirect to={'/'} />
-  ) : (
-    <div>
-      <Button onClick={props.loginHandler}>login</Button>
-    </div>
-  );
-};
+class Login extends React.PureComponent<Props> {
+  public render() {
+    return this.props.app.authState ? (
+      <Redirect to={'/'} />
+    ) : (
+      <div>
+        <Button onClick={this.props.loginHandler}>login</Button>
+      </div>
+    );
+  }
+}
 
 export default connect(
   (state: Props) => ({

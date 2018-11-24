@@ -5,55 +5,59 @@ import Typographty, { TypographyProps } from '@material-ui/core/Typography';
 import * as React from 'react';
 import styled from 'styled-components';
 
-export const SearchForm: React.SFC<any> = (props) => (
-  <StyledPaper>
-    <StyledTypography variant={'h6'}>Search</StyledTypography>
-    <StyledGridInput0>
-      <TextField
-        label={'word1'}
-        name={'word0'}
-        key={'word0'}
-        fullWidth={true}
-        value={props.inputs.input0}
-        onChange={props.changeForm}
-      />
-    </StyledGridInput0>
-    <StyledGridInput1>
-      <TextField
-        label={'word2'}
-        name={'word1'}
-        key={'word1'}
-        fullWidth={true}
-        value={props.inputs.input1}
-        onChange={props.changeForm}
-      />
-    </StyledGridInput1>
-    <StyledGridInput2>
-      <TextField
-        label={'word3'}
-        name={'word2'}
-        key={'word2'}
-        fullWidth={true}
-        value={props.inputs.input2}
-        onChange={props.changeForm}
-      />
-    </StyledGridInput2>
-    <StyledGridButton0
-      color={'secondary'}
-      onClick={props.initForm}
-      variant={'contained'}
-    >
-      Clear
-    </StyledGridButton0>
-    <StyledGridButton1
-      color={'primary'}
-      onClick={props.submitSearch}
-      variant={'contained'}
-    >
-      Submit
-    </StyledGridButton1>
-  </StyledPaper>
-);
+export class SearchForm extends React.PureComponent<any> {
+  public render() {
+    return (
+      <StyledPaper>
+        <StyledTypography variant={'h6'}>Search</StyledTypography>
+        <StyledGridInput0>
+          <TextField
+            label={'word1'}
+            name={'word0'}
+            key={'word0'}
+            fullWidth={true}
+            value={this.props.inputs.input0}
+            onChange={this.props.changeForm}
+          />
+        </StyledGridInput0>
+        <StyledGridInput1>
+          <TextField
+            label={'word2'}
+            name={'word1'}
+            key={'word1'}
+            fullWidth={true}
+            value={this.props.inputs.input1}
+            onChange={this.props.changeForm}
+          />
+        </StyledGridInput1>
+        <StyledGridInput2>
+          <TextField
+            label={'word3'}
+            name={'word2'}
+            key={'word2'}
+            fullWidth={true}
+            value={this.props.inputs.input2}
+            onChange={this.props.changeForm}
+          />
+        </StyledGridInput2>
+        <StyledGridButton0
+          color={'secondary'}
+          onClick={this.props.initForm}
+          variant={'contained'}
+        >
+          Clear
+        </StyledGridButton0>
+        <StyledGridButton1
+          color={'primary'}
+          onClick={this.props.submitSearch}
+          variant={'contained'}
+        >
+          Submit
+        </StyledGridButton1>
+      </StyledPaper>
+    );
+  }
+}
 
 const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
   padding: 20px;

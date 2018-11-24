@@ -11,38 +11,32 @@ import { Redirect, Route } from 'react-router-dom';
 
 type Props = IRootState & Action.Type;
 
-class Auth extends React.Component<Props, {}> {
-
-    public render() {
-        return (
-            this.props.app.authState ? (
-                <div>
-                    <GlobalHeader
-                        onClick={this.props.openConfigView}
-                        onClose={this.props.closeConfigView}
-                        onChange={this.props.changeTab}
-                        logoutHandler={this.props.logoutHandler}
-                        tabIndex={this.props.ui.tabIndex}
-                        configActive={this.props.ui.configActive}
-                    />
-                    <Route children={this.props.children}/>
-                </div>
-            ) : (
-                <Redirect to={'/login'}/>
-            )
-        )
-    }
-};
-
+class Auth extends React.PureComponent<Props, {}> {
+  public render() {
+    return this.props.app.authState ? (
+      <div>
+        <GlobalHeader
+          onClick={this.props.openConfigView}
+          onClose={this.props.closeConfigView}
+          onChange={this.props.changeTab}
+          logoutHandler={this.props.logoutHandler}
+          tabIndex={this.props.ui.tabIndex}
+          configActive={this.props.ui.configActive}
+        />
+        <Route children={this.props.children} />
+      </div>
+    ) : (
+      <Redirect to={'/login'} />
+    );
+  }
+}
 
 export default connect(
-    (state: IRootState) => ({
-        router: state.router,
-        app: state.app,
-        ui: state.ui,
-    }),
-    (dispatch: Dispatch) =>
-        bindActionCreators(
-            {...AApp.actions, ...UI.actions}, dispatch
-        )
+  (state: IRootState) => ({
+    router: state.router,
+    app: state.app,
+    ui: state.ui,
+  }),
+  (dispatch: Dispatch) =>
+    bindActionCreators({ ...AApp.actions, ...UI.actions }, dispatch),
 )(Auth);
