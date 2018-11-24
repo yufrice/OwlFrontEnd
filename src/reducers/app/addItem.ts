@@ -6,10 +6,12 @@ const initItemInput: ItemInput = {
   name: '',
   word: '',
   desc: '',
-  file: undefined,
+  file: '',
+  format: '',
 };
 
 export const initialState: IAddItemState = {
+  state: 'neutral',
   input: initItemInput,
 };
 
@@ -18,22 +20,7 @@ export const addItemReducer = (
   action: Type,
 ): IAddItemState => {
   switch (action.type) {
-    case ActionType.changeInput:
-      const newInput = ((input: any) => {
-        switch (input.name) {
-          case 'name':
-            return { ...state.input, name: input.value };
-          case 'word':
-            return { ...state.input, word: input.value };
-          case 'desc':
-            return { ...state.input, desc: input.value };
-          case 'file':
-            return { ...state.input, file: input.value };
-          default:
-            return state.input;
-        }
-      })(action.payload.input);
-      return { ...state, input: newInput };
+    case ActionType.submit:
     default:
       return state;
   }

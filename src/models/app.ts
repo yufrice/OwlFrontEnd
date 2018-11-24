@@ -21,6 +21,7 @@ export interface Item {
 }
 
 export interface IAddItemState {
+  state: 'neutral' | 'uploading' | 'success' | 'error';
   input: ItemInput;
 }
 
@@ -28,5 +29,6 @@ export interface ItemInput {
   name: string;
   word: string;
   desc: string;
-  file: File | undefined;
+  file: string;
+  format: string;
 }

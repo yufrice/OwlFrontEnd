@@ -1,27 +1,19 @@
 import { Action } from 'redux';
 
 export enum ActionType {
-  changeInput = 'CHANGE_INPUT',
+  submit = 'SUBMIT',
 }
 
-interface IChangeInput extends Action {
-  type: ActionType.changeInput;
-  payload: {
-    input: { name: string; value: string | File };
-  };
+interface ISubmit extends Action {
+  type: ActionType.submit;
 }
 
-export const changeInput = (
-  event: React.ChangeEvent<HTMLInputElement>,
-): IChangeInput => {
+export const submit = (): ISubmit => {
   return {
-    type: ActionType.changeInput,
-    payload: {
-      input: { name: event.target.name, value: event.target.value },
-    },
+    type: ActionType.submit,
   };
 };
 
-export type Type = IChangeInput;
+export type Type = ISubmit;
 
-export const actions = { changeInput };
+export const actions = { submit };

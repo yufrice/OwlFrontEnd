@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { IProps } from './type';
 
-export class Modal extends React.PureComponent<IProps> {
+export class Modal extends React.Component<IProps> {
   public render() {
     return (
       <_Modal
