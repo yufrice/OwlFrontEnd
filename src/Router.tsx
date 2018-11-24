@@ -2,25 +2,25 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import {App, Auth, Debug, Edit, Login } from '@/components/Pages';
+import { App, Auth, Debug, Edit, Login } from '@/components/Pages';
 import './index.css';
 
-const Router: React.SFC<{}> = () => {
-    return (
-        <div>
-            <GlobalStyle/>
-            <Switch>
-                <Route path={'/login'} component={Login} />
-                <Auth>
-                    <Switch>
-                        <Route path={'/edit'} component={Edit} />
-                        <Route path={'/debug'} component={Debug} />
-                        <Route exact={true} path={'/'} component={App} onEnter={false} />
-                    </Switch>
-                </Auth>
-            </Switch>
-        </div>
-    );
+const Router: React.SFC = () => {
+  return (
+    <div>
+      <GlobalStyle />
+      <Switch>
+        <Route path={'/login'} component={Login} />
+        <Auth>
+          <Switch>
+            <Route path={'/edit'} component={Edit} />
+            <Route path={'/debug'} component={Debug} />
+            <Route exact={true} path={'/'} component={App} onEnter={false} />
+          </Switch>
+        </Auth>
+      </Switch>
+    </div>
+  );
 };
 
 const GlobalStyle = createGlobalStyle`

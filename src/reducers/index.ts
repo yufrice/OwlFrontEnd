@@ -1,6 +1,7 @@
 import { IAppState } from '@models/app';
 import { connectRouter, RouterState } from 'connected-react-router';
 import { combineReducers } from 'redux';
+import { reducer as reduxFormReducer } from 'redux-form';
 
 import * as App from './app';
 import * as UI from './ui';
@@ -16,4 +17,5 @@ export default (history: any) =>
     router: connectRouter(history),
     app: App.appReducer,
     ui: UI.uiReducer,
+    form: reduxFormReducer,
   } as any);

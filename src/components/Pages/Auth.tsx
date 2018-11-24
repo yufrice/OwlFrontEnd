@@ -11,7 +11,7 @@ import { Redirect, Route } from 'react-router-dom';
 
 type Props = IRootState & Action.Type;
 
-class Auth extends React.PureComponent<Props, {}> {
+class Auth extends React.PureComponent<Props> {
   public render() {
     return this.props.app.authState ? (
       <div>

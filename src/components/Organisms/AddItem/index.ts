@@ -1,3 +1,3 @@
-import { AddItem } from './AddItem';
+import AddItem from './AddItem';
 
 export { AddItem };

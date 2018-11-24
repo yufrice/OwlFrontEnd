@@ -24,12 +24,8 @@ class Edit extends React.PureComponent<Props> {
         <Modal
           open={this.props.ui.addItemActive}
           onClose={this.props.closeAddItem}
-          child={
-            <AddItem
-              changeInput={this.props.changeInput}
-              input={this.props.app.addItem.input}
-            />
-          }
+          size={[50, 50]}
+          child={<AddItem />}
         />
       </StyledPaper>
     );

@@ -1,3 +1,4 @@
+import { TextField } from './TextField';
 import { theme } from './Theme';
 
-export { theme }
+export { TextField, theme };
