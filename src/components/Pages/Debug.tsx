@@ -31,7 +31,6 @@ const StyledDiv = styled.div`
 
 export default connect(
   (state: Props) => ({
-    router: state.router,
     app: state.app,
     ui: state.ui,
   }),

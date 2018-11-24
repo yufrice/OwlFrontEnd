@@ -1,11 +1,15 @@
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { routerMiddleware } from 'connected-react-router';
+import {
+  ConnectedRouter,
+  connectRouter,
+  routerMiddleware,
+} from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import 'normalize.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import { whyDidYouUpdate } from 'why-did-you-update';
@@ -29,20 +33,23 @@ if (process.env.NODE_ENV !== 'production') {
   });
   middlewares.push(logger);
 }
-
 const store = createStore(
-  rootReducer(history),
-  compose(applyMiddleware(...middlewares)),
+  connectRouter(history)(rootReducer),
+  compose(
+    applyMiddleware(...middlewares),
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
+  ),
 );
 
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
-      <BrowserRouter>
-        {/*<ConnectedRouter history={history}>*/}
+      {/* <BrowserRouter> */}
+      <ConnectedRouter history={history}>
         <Router />
-        {/*</ConnectedRouter>*/}
-      </BrowserRouter>
+      </ConnectedRouter>
+      {/* </BrowserRouter> */}
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('root') as HTMLElement,

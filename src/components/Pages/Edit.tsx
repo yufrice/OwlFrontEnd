@@ -38,7 +38,6 @@ const StyledButton = styled(Button as React.SFC<ButtonProps>)``;
 
 export default connect(
   (state: Props) => ({
-    router: state.router,
     app: state.app,
     ui: state.ui,
   }),

@@ -25,7 +25,6 @@ class Login extends React.PureComponent<Props> {
 
 export default connect(
   (state: Props) => ({
-    router: state.router,
     app: state.app,
     ui: state.ui,
   }),

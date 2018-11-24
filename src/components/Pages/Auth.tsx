@@ -33,7 +33,6 @@ class Auth extends React.PureComponent<Props> {
 
 export default connect(
   (state: IRootState) => ({
-    router: state.router,
     app: state.app,
     ui: state.ui,
   }),
