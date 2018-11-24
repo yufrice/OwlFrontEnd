@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
+import { whyDidYouUpdate } from 'why-did-you-update';
 import registerServiceWorker from './registerServiceWorker';
 
 import { theme } from '@/components/Atoms';
@@ -15,18 +16,23 @@ import { api } from '@/middleware';
 import rootReducer from '@/reducers';
 import Router from './Router';
 
-const logger = createLogger({
-  collapsed: true,
-  diff: true,
-});
+if (process.env.NODE_ENV === 'fullDebug') {
+  whyDidYouUpdate(React);
+}
+
 const history = createBrowserHistory();
+const middlewares = [routerMiddleware(history), api];
+if (process.env.NODE_ENV !== 'production') {
+  const logger = createLogger({
+    collapsed: true,
+    diff: true,
+  });
+  middlewares.push(logger);
+}
+
 const store = createStore(
   rootReducer(history),
-  compose(
-    applyMiddleware(routerMiddleware(history)),
-    applyMiddleware(api),
-    applyMiddleware(logger),
-  ),
+  compose(applyMiddleware(...middlewares)),
 );
 
 ReactDOM.render(

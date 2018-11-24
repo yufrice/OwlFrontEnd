@@ -22,7 +22,12 @@ const Edit: React.SFC<Props> = (props: Props) => (
     <Modal
       open={props.ui.addItemActive}
       onClose={props.closeAddItem}
-      child={<AddItem />}
+      child={
+        <AddItem
+          changeInput={props.changeInput}
+          input={props.app.addItem.input}
+        />
+      }
     />
   </StyledPaper>
 );

@@ -1,149 +1,172 @@
 import { Item } from '@models/app';
 import { Action } from 'redux';
+import * as AddItem from './app/addItem';
 
 export enum ActionType {
-    error = 'ERROR',
-    debug = 'DEBUG',
-    initForm = 'INIT_FORM',
-    stateFound = 'STATE_FOUND',
-    notFound = 'NOT_FOUND',
-    changeForm = 'CHANGE_FROM',
-    submitSearch = 'SUBMIT_SEARCH',
-    invalidate = 'INVALIDATE',
-    searchRequestGet = 'SEARCH_REQUEST_GET',
-    searchRequestReceive = 'SEARCH_REQUEST_RECEIVE',
-    login = 'LOGIN',
-    logout = 'LOGOUT',
-};
+  error = 'ERROR',
+  debug = 'DEBUG',
+  initForm = 'INIT_FORM',
+  stateFound = 'STATE_FOUND',
+  notFound = 'NOT_FOUND',
+  changeForm = 'CHANGE_FROM',
+  submitSearch = 'SUBMIT_SEARCH',
+  invalidate = 'INVALIDATE',
+  searchRequestGet = 'SEARCH_REQUEST_GET',
+  searchRequestReceive = 'SEARCH_REQUEST_RECEIVE',
+  login = 'LOGIN',
+  logout = 'LOGOUT',
+}
 
 interface ITestFond extends Action {
-    type: ActionType.debug,
-};
+  type: ActionType.debug;
+}
 
 export const testFond = (): ITestFond => ({
-    type: ActionType.debug,
+  type: ActionType.debug,
 });
 
 interface IError extends Action {
-    type: ActionType.error,
-};
+  type: ActionType.error;
+}
 
 export const searchError = (): IError => ({
-    type: ActionType.error,
+  type: ActionType.error,
 });
 
 interface IInitForm extends Action {
-    type: ActionType.initForm,
-};
+  type: ActionType.initForm;
+}
 
-export const initForm  = (): IInitForm => ({
-    type: ActionType.initForm,
+export const initForm = (): IInitForm => ({
+  type: ActionType.initForm,
 });
 
 interface IStateFound extends Action {
-    type: ActionType.stateFound,
-};
+  type: ActionType.stateFound;
+}
 
 export const stateFound = (): IStateFound => ({
-    type: ActionType.stateFound,
+  type: ActionType.stateFound,
 });
 
 interface INotFound extends Action {
-    type: ActionType.notFound,
-};
+  type: ActionType.notFound;
+}
 
 export const notFound = (): INotFound => ({
-    type: ActionType.notFound,
+  type: ActionType.notFound,
 });
 
 interface IChangeForm extends Action {
+  type: ActionType.changeForm;
+  payload: {
+    input: { name: string; value: string };
+  };
+}
+
+export const changeForm = (
+  event: React.ChangeEvent<HTMLInputElement>,
+): IChangeForm => {
+  return {
     type: ActionType.changeForm,
     payload: {
-        input: {name: string, value: string},
+      input: { name: event.target.name, value: event.target.value },
     },
+  };
 };
-
-export const changeForm = (event: React.ChangeEvent<HTMLInputElement>): IChangeForm => {
-    return {
-        type: ActionType.changeForm,
-        payload: {
-            input: {name: event.target.name, value: event.target.value},
-        },
-    }};
 
 interface ISubmitSearch extends Action {
-    type: ActionType.submitSearch,
-};
+  type: ActionType.submitSearch;
+}
 
 export const submitSearch = (): ISubmitSearch => ({
-    type: ActionType.submitSearch,
+  type: ActionType.submitSearch,
 });
 
-
 interface IInvalidate extends Action {
-    type: ActionType.invalidate,
-};
+  type: ActionType.invalidate;
+}
 
 export const invalidate = (): IInvalidate => ({
-    type: ActionType.invalidate,
+  type: ActionType.invalidate,
 });
 
 interface ISearchRequestGet extends Action {
+  type: ActionType.searchRequestGet;
+  meta: {
+    inputs: Array<{}>;
+    word: string;
+  };
+}
+
+export const searchRequestGet = (
+  ipts: Array<{}>,
+  wrd: string,
+): ISearchRequestGet => {
+  return {
     type: ActionType.searchRequestGet,
     meta: {
-        inputs: Array<{}>,
-        word: string,
+      inputs: ipts,
+      word: wrd,
     },
+  };
 };
-
-export const searchRequestGet = (ipts: Array<{}>, wrd: string): ISearchRequestGet => {
-    return{
-        type: ActionType.searchRequestGet,
-        meta: {
-            inputs: ipts,
-            word: wrd,
-        },
-    }};
 
 interface ISearchRequestReceive extends Action {
-    type: ActionType.searchRequestReceive,
-    payload: {
-        items: Item[],
-    },
-    meta: {
-        result: Array<{}>,
-    },
-};
+  type: ActionType.searchRequestReceive;
+  payload: {
+    items: Item[];
+  };
+  meta: {
+    result: Array<{}>;
+  };
+}
 
-export const searchRequestReceive = (res: Array<{}>): ISearchRequestReceive => ({
-    type: ActionType.searchRequestReceive,
-    payload: {
-        items: [],
-    },
-    meta: {
-        result: res,
-    },
+export const searchRequestReceive = (
+  res: Array<{}>,
+): ISearchRequestReceive => ({
+  type: ActionType.searchRequestReceive,
+  payload: {
+    items: [],
+  },
+  meta: {
+    result: res,
+  },
 });
 
 interface ILogin extends Action {
-    type: ActionType.login,
-};
+  type: ActionType.login;
+}
 
 export const loginHandler = (): ILogin => ({
-    type :ActionType.login,
+  type: ActionType.login,
 });
 
 interface ILogout extends Action {
-    type: ActionType.logout,
-};
+  type: ActionType.logout;
+}
 
 export const logoutHandler = (): ILogout => ({
-    type :ActionType.logout,
+  type: ActionType.logout,
 });
 
-export type Type = ITestFond | IError | IInitForm | IStateFound | INotFound | IChangeForm | ISubmitSearch | IInvalidate | ISearchRequestGet | ISearchRequestReceive | ILogin | ILogout;
+export type Type =
+  | ITestFond
+  | IError
+  | IInitForm
+  | IStateFound
+  | INotFound
+  | IChangeForm
+  | ISubmitSearch
+  | IInvalidate
+  | ISearchRequestGet
+  | ISearchRequestReceive
+  | ILogin
+  | ILogout
+  | AddItem.Type;
 
-export const actions = {
+export const actions = Object.assign(
+  {
     testFond,
     searchError,
     initForm,
@@ -156,4 +179,6 @@ export const actions = {
     searchRequestReceive,
     loginHandler,
     logoutHandler,
-};
+  },
+  AddItem.actions,
+);

@@ -3,12 +3,33 @@ import TextField from '@material-ui/core/TextField';
 import * as React from 'react';
 import styled from 'styled-components';
 
-export const AddItem: React.SFC<any> = () => (
+import { actions } from '@action/app/addItem';
+import { IAddItemState } from '@models/app';
+
+type Type = typeof actions & IAddItemState;
+
+export const AddItem: React.SFC<Type> = (props: Type) => (
   <StyledForm>
-    <TextField label='Item' />
-    <TextField label='Word' />
-    <TextField label='Description' multiline={true} rowsMax={4} />
-    <input type='file' />
+    <TextField
+      label='Item'
+      name='name'
+      value={props.input.name}
+      onChange={props.changeInput}
+    />
+    <TextField
+      label='Word'
+      name='word'
+      value={props.input.word}
+      onChange={props.changeInput}
+    />
+    <TextField
+      label='Description'
+      multiline={true}
+      name='desc'
+      value={props.input.desc}
+      onChange={props.changeInput}
+    />
+    <input type='file' name='file' onChange={props.changeInput} />
     <Button color='secondary' variant='contained'>
       reset
     </Button>

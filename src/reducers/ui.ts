@@ -19,32 +19,27 @@ export const uiReducer = (
   switch (action.type) {
     case ActionType.openConfigView:
       return {
+        ...state,
         configActive: true,
-        addItemActive: state.addItemActive,
-        tabIndex: state.tabIndex,
       };
     case ActionType.closeConfigView:
       return {
+        ...state,
         configActive: false,
-        addItemActive: state.addItemActive,
-        tabIndex: state.tabIndex,
       };
     case ActionType.openAddItem:
       return {
-        configActive: state.configActive,
+        ...state,
         addItemActive: true,
-        tabIndex: state.tabIndex,
       };
     case ActionType.closeAddItem:
       return {
-        configActive: state.configActive,
+        ...state,
         addItemActive: false,
-        tabIndex: state.tabIndex,
       };
     case ActionType.changeTab:
       return {
-        configActive: state.configActive,
-        addItemActive: state.addItemActive,
+        ...state,
         tabIndex: action.payload.index,
       };
     default:
