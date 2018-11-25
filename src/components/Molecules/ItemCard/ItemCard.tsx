@@ -7,26 +7,34 @@ import styled from 'styled-components';
 
 import { IProps } from './type';
 
-export const ItemCard: React.SFC<IProps> = props => (
-  <StyledItemCard>
-    <StyledCardImg src={props.image} />
-    <StyledContent container={true} spacing={16}>
-      <Grid item={true}>
-        <Typography variant={'h6'}>{props.title}</Typography>
-      </Grid>
-      <Grid item={true} xs={12}>
-        <Divider />
-      </Grid>
-      <Grid item={true} xs={12}>
-        <Grid container={true} justify={'flex-end'}>
-          <Button onClick={props.onClick} color={'primary'} variant={'text'}>
-            About
-          </Button>
-        </Grid>
-      </Grid>
-    </StyledContent>
-  </StyledItemCard>
-);
+export class ItemCard extends React.PureComponent<IProps> {
+  public render() {
+    return (
+      <StyledItemCard>
+        <StyledCardImg src={this.props.image} />
+        <StyledContent container={true} spacing={16}>
+          <Grid item={true}>
+            <Typography variant={'h6'}>{this.props.title}</Typography>
+          </Grid>
+          <Grid item={true} xs={12}>
+            <Divider />
+          </Grid>
+          <Grid item={true} xs={12}>
+            <Grid container={true} justify={'flex-end'}>
+              <Button
+                onClick={this.props.onClick}
+                color={'primary'}
+                variant={'text'}
+              >
+                About
+              </Button>
+            </Grid>
+          </Grid>
+        </StyledContent>
+      </StyledItemCard>
+    );
+  }
+}
 
 const StyledItemCard = styled.div`
   background: #fff;
