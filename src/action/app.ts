@@ -15,6 +15,7 @@ export enum ActionType {
   searchRequestReceive = 'SEARCH_REQUEST_RECEIVE',
   login = 'LOGIN',
   logout = 'LOGOUT',
+  checkSession = 'CHECK_SESSION',
 }
 
 interface ITestFond extends Action {
@@ -150,6 +151,20 @@ export const logoutHandler = (): ILogout => ({
   type: ActionType.logout,
 });
 
+interface ICheckSession extends Action {
+  type: ActionType.checkSession;
+  payload: {
+    auth: boolean;
+  };
+}
+
+export const checkSession = (): ICheckSession => ({
+  type: ActionType.checkSession,
+  payload: {
+    auth: false,
+  },
+});
+
 export type Type =
   | ITestFond
   | IError
@@ -163,6 +178,7 @@ export type Type =
   | ISearchRequestReceive
   | ILogin
   | ILogout
+  | ICheckSession
   | AddItem.Type;
 
 export const actions = Object.assign(
@@ -179,6 +195,7 @@ export const actions = Object.assign(
     searchRequestReceive,
     loginHandler,
     logoutHandler,
+    checkSession,
   },
   AddItem.actions,
 );

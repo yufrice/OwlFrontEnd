@@ -15,7 +15,7 @@ import { whyDidYouUpdate } from 'why-did-you-update';
 import registerServiceWorker from './registerServiceWorker';
 
 import { theme } from '@/components/Atoms';
-import { api } from '@/middleware';
+import { api, auth } from '@/middleware';
 import rootReducer from '@/reducers';
 import Router from './Router';
 
@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'fullDebug') {
 }
 
 const history = createBrowserHistory();
-const middlewares = [routerMiddleware(history), api];
+const middlewares = [routerMiddleware(history), api, auth];
 if (process.env.NODE_ENV !== 'production') {
   const logger = createLogger({
     collapsed: true,

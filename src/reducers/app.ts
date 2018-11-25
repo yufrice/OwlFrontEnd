@@ -98,6 +98,9 @@ export const appReducer = (
         ...state,
         authState: false,
       };
+    case ActionType.checkSession:
+      console.log(action.payload.auth);
+      return { ...state, authState: action.payload.auth };
     default:
       return {
         ...state,

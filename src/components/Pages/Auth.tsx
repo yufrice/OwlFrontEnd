@@ -12,6 +12,14 @@ import { Redirect, Route } from 'react-router-dom';
 type Props = IRootState & Action.Type;
 
 class Auth extends React.PureComponent<Props> {
+  public componentWillMount() {
+    return this.props.app.authState || this.props.checkSession();
+  }
+
+  public componentWillUpdate() {
+    return this.props.app.authState || this.props.checkSession();
+  }
+
   public render() {
     return this.props.app.authState ? (
       <div>
