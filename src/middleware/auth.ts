@@ -14,10 +14,10 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
         return next(action);
       }
     case ActionType.login:
-      sessionStorage.setItem('sessionID', 'token');
+      localStorage.setItem('sessionID', 'token');
       break;
     case ActionType.logout:
-      sessionStorage.clear();
+      localStorage.clear();
       break;
   }
   return next(action);
