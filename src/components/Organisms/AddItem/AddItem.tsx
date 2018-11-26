@@ -4,28 +4,55 @@ import * as React from 'react';
 import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 import styled from 'styled-components';
 
-class AddItem extends React.PureComponent<InjectedFormProps<any>> {
+interface IProps {
+  onChangeFile: any;
+}
+
+class AddItem extends React.PureComponent<InjectedFormProps<any> & IProps> {
   public render() {
     return (
       <StyledForm>
-        <Field name='item' component={TextField} label='Item name' />
-        <Field name='word' component={TextField} label='Search word' />
         <Field
+          name='item'
+          required={true}
+          component={TextField}
+          label='Item name'
+        />
+        <Field
+          name='word'
+          required={true}
+          component={TextField}
+          label='Search word'
+        />
+        <Field
+          required={true}
           name='desc'
           component={TextField}
           label='Description'
           multiline={true}
         />
-        <input type='file' accept='image/*' name='file' />
+        <input
+          onChange={this.props.onChangeFile}
+          type='file'
+          name='file'
+          multiple={false}
+        />
         <Button
           onClick={this.props.reset}
           color='secondary'
           type='reset'
           variant='contained'
+          disabled={this.props.pristine || this.props.submitting}
         >
           reset
         </Button>
-        <Button color='primary' type='button' variant='contained'>
+        <Button
+          onClick={this.props.handleSubmit}
+          color='primary'
+          type='button'
+          variant='contained'
+          disabled={this.props.pristine}
+        >
           submit
         </Button>
       </StyledForm>
@@ -33,9 +60,11 @@ class AddItem extends React.PureComponent<InjectedFormProps<any>> {
   }
 }
 
-export default reduxForm({
-  form: 'addItemForm',
-})(AddItem);
+export default (props: any) =>
+  reduxForm({
+    form: 'addItemForm',
+    ...props,
+  })(AddItem);
 
 const StyledForm = styled.form`
   display: inline-flex;

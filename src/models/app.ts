@@ -23,6 +23,7 @@ export interface Item {
 export interface IAddItemState {
   state: 'neutral' | 'uploading' | 'success' | 'error';
   input: ItemInput;
+  rawFile: File;
 }
 
 export interface ItemInput {
@@ -31,4 +32,17 @@ export interface ItemInput {
   desc: string;
   file: string;
   format: string;
+}
+
+export const initItemInput: ItemInput = {
+  name: '',
+  word: '',
+  desc: '',
+  file: '',
+  format: '',
+};
+
+export interface IUser {
+  ident: string;
+  password: string;
 }

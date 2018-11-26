@@ -1,5 +1,7 @@
-import { ActionType } from '@/action/app';
 import { Dispatch, Middleware, MiddlewareAPI } from 'redux';
+
+import { ActionType } from '@/action/app';
+import * as API from './utils';
 
 export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
   action,
@@ -13,7 +15,22 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
         return next(action);
       }
     case ActionType.login:
-      localStorage.setItem('sessionID', 'token');
+      API.postLogin({ ident: 'user', password: 'mypassword' })
+        .then(API.statusCheck)
+        .then((res) => {
+          const token = res.headers.get('access_token');
+          if (null !== token) {
+            localStorage.setItem('sessionID', token);
+            action.payload.auth = true;
+            return next(action);
+          } else {
+            throw new Error('invalid token');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          return next(action);
+        });
       break;
     case ActionType.logout:
       localStorage.clear();

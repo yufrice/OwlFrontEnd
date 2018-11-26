@@ -1,16 +1,44 @@
+import { Seq } from 'immutable';
+import { Dispatch, Middleware, MiddlewareAPI } from 'redux';
+
 import {
   ActionType,
   searchRequestGet,
   searchRequestReceive,
 } from '@/action/app';
-import { Seq } from 'immutable';
-import fetch, { Response } from 'node-fetch';
-import { Dispatch, Middleware, MiddlewareAPI } from 'redux';
+import * as AddItem from '@/action/app/addItem';
+import { closeAddItem } from '@/action/ui';
+import * as API from './utils';
 
 export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
   action,
 ) => {
   switch (action.type) {
+    case AddItem.ActionType.inputFile:
+      if (null !== action.meta.input.target) {
+        action.payload.file = action.meta.input.target.files[0];
+      }
+      return next(action);
+    case AddItem.ActionType.submit:
+      const reader = new FileReader();
+      const file = store.getState().app.addItem.rawFile;
+      reader.onload = () => {
+        if (null !== reader.result) {
+          action.meta.file.file = reader.result;
+          const strs = action.meta.file.file.split(',');
+          action.meta.file.file = strs[1];
+          action.meta.file.format = API.parseFormat(strs[0]);
+        }
+      };
+      reader.readAsDataURL(file);
+      action.meta.file.name = store.getState().form.addItemForm.values.item;
+      action.meta.file.word = store.getState().form.addItemForm.values.word;
+      action.meta.file.desc = store.getState().form.addItemForm.values.desc;
+      const token = localStorage.getItem('sessionID') || '';
+      // ToDo fetch status check then closeModal else error handler.
+      API.postItem(token, action.meta.file);
+      store.dispatch(closeAddItem());
+      return next(action);
     case ActionType.searchRequestReceive:
       action.payload.items = action.meta.result;
       next({ type: ActionType.stateFound });
@@ -21,8 +49,8 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
         .slice(0, 5)
         .map((str: any) => params.append('search', str.word))
         .toArray();
-      getItem(params)
-        .then(statusCheck)
+      API.getItem(params)
+        .then(API.statusCheck)
         .then((res) => res.json())
         .then((res) => {
           if (0 === res.length) {
@@ -39,8 +67,8 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
 
       return next(action);
     case ActionType.submitSearch:
-      getVector(store.getState().form.searchForm.values.word0)
-        .then((res) => statusCheck(res))
+      API.getVector(store.getState().form.searchForm.values.word0)
+        .then((res) => API.statusCheck(res))
         .then((res) => res.json())
         .then((res) => {
           if (0 === res.result.length) {
@@ -61,21 +89,4 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
         });
   }
   return next(action);
-};
-
-const getVector = async (query: string) => {
-  const parameter = '?word=' + query;
-  return await fetch('/api/vector' + parameter);
-};
-
-const getItem = async (query: URLSearchParams) => {
-  return await fetch('/api/item?' + query.toString());
-};
-
-const statusCheck = (res: Response) => {
-  if (res.ok) {
-    return res;
-  } else {
-    throw res.status;
-  }
 };

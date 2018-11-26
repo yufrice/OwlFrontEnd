@@ -137,10 +137,16 @@ export const searchRequestReceive = (
 
 interface ILogin extends Action {
   type: ActionType.login;
+  payload: {
+    auth: boolean;
+  };
 }
 
 export const loginHandler = (): ILogin => ({
   type: ActionType.login,
+  payload: {
+    auth: false,
+  },
 });
 
 interface ILogout extends Action {

@@ -91,7 +91,7 @@ export const appReducer = (
     case ActionType.login:
       return {
         ...state,
-        authState: true,
+        authState: action.payload.auth,
       };
     case ActionType.logout:
       return {
@@ -99,7 +99,6 @@ export const appReducer = (
         authState: false,
       };
     case ActionType.checkSession:
-      console.log(action.payload.auth);
       return { ...state, authState: action.payload.auth };
     default:
       return {

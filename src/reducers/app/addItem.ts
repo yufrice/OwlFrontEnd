@@ -1,18 +1,11 @@
 import { Type } from '@/action/app';
 import { ActionType } from '@/action/app/addItem';
-import { IAddItemState, ItemInput } from '@models/app';
-
-const initItemInput: ItemInput = {
-  name: '',
-  word: '',
-  desc: '',
-  file: '',
-  format: '',
-};
+import { IAddItemState, initItemInput } from '@models/app';
 
 export const initialState: IAddItemState = {
   state: 'neutral',
   input: initItemInput,
+  rawFile: new File([], ''),
 };
 
 export const addItemReducer = (
@@ -20,7 +13,13 @@ export const addItemReducer = (
   action: Type,
 ): IAddItemState => {
   switch (action.type) {
+    case ActionType.inputFile:
+      return {
+        ...state,
+        rawFile: action.payload.file,
+      };
     case ActionType.submit:
+      return state;
     default:
       return state;
   }

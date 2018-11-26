@@ -15,6 +15,10 @@ import { IRootState } from '@reducers';
 type Props = IRootState & Action.Type;
 
 class Edit extends React.PureComponent<Props> {
+  private AddItem = AddItem({
+    onSubmit: this.props.submit,
+    onChangeFile: this.props.inputFile,
+  });
   public render() {
     return (
       <StyledPaper>
@@ -25,7 +29,7 @@ class Edit extends React.PureComponent<Props> {
           open={this.props.ui.addItemActive}
           onClose={this.props.closeAddItem}
           size={[50, 50]}
-          child={<AddItem />}
+          child={<this.AddItem />}
         />
       </StyledPaper>
     );

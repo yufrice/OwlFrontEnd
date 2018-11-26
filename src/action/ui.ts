@@ -36,7 +36,7 @@ interface ICloseAddItem extends Action {
   type: ActionType.closeAddItem;
 }
 
-const closeAddItem = (): ICloseAddItem => ({
+export const closeAddItem = (): ICloseAddItem => ({
   type: ActionType.closeAddItem,
 });
 
