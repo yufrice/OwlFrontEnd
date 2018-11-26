@@ -6,9 +6,8 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
 ) => {
   switch (action.type) {
     case ActionType.checkSession:
-      if (sessionStorage.getItem('sessionID')) {
+      if (localStorage.getItem('sessionID')) {
         action.payload.auth = true;
-        console.log(action.payload);
         return next(action);
       } else {
         return next(action);
