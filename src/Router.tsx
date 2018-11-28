@@ -15,7 +15,7 @@ const Router: React.SFC = () => {
           <Switch>
             <Route path={'/edit'} component={Edit} />
             <Route path={'/debug'} component={Debug} />
-            <Route exact={true} path={'/'} component={App} onEnter={false} />
+            <Route exact={true} path={'/'} component={App} />
           </Switch>
         </Auth>
       </Switch>

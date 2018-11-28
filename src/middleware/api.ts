@@ -30,19 +30,19 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
             const strs = action.meta.file.file.split(',');
             action.meta.file.file = strs[1];
             action.meta.file.format = API.parseFormat(strs[0]) || '.jpg';
+            reader.readAsDataURL(file);
+            action.meta.file.name = store.getState().form.addItemForm.values.item;
+            action.meta.file.word = store.getState().form.addItemForm.values.word;
+            action.meta.file.desc = store.getState().form.addItemForm.values.desc;
+            const token = localStorage.getItem('sessionID') || '';
+            API.postItem(token, action.meta.file)
+              .then(API.statusCheck)
+              .then(() => store.dispatch(closeAddItem()));
+            return next(action);
           } else {
             throw new Error('invalid file format.');
           }
         };
-        reader.readAsDataURL(file);
-        action.meta.file.name = store.getState().form.addItemForm.values.item;
-        action.meta.file.word = store.getState().form.addItemForm.values.word;
-        action.meta.file.desc = store.getState().form.addItemForm.values.desc;
-        const token = localStorage.getItem('sessionID') || '';
-        API.postItem(token, action.meta.file)
-          .then(API.statusCheck)
-          .then(() => store.dispatch(closeAddItem()));
-        return next(action);
       } catch (err) {
         throw new SubmissionError(err);
       }
