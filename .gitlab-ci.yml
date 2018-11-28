@@ -1,4 +1,4 @@
-image: node:slim
+image: node:alpine
 
 cache:
   paths:
