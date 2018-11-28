@@ -1,9 +1,5 @@
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import {
-  ConnectedRouter,
-  connectRouter,
-  routerMiddleware,
-} from 'connected-react-router';
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import 'normalize.css';
 import * as React from 'react';
@@ -33,11 +29,12 @@ if (process.env.NODE_ENV !== 'production') {
   middlewares.push(logger);
 }
 const store = createStore(
-  connectRouter(history)(rootReducer),
+  rootReducer(history),
   compose(
     applyMiddleware(...middlewares),
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-      (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
+    // ToDo redux devtools bugs
+    // (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+    //   (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
   ),
 );
 

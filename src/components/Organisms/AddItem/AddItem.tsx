@@ -60,9 +60,24 @@ class AddItem extends React.PureComponent<InjectedFormProps<any> & IProps> {
   }
 }
 
+interface IFormFields {
+  item: string;
+  word: string;
+  desc: string;
+}
+
+const validation = (values: IFormFields) => {
+  const err = {} as IFormFields;
+  if (!values.word) {
+    err.word = 'a';
+  }
+  return err;
+};
+
 export default (props: any) =>
   reduxForm({
     form: 'addItemForm',
+    validate: validation,
     ...props,
   })(AddItem);
 

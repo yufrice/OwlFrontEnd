@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Redirect, Route } from 'react-router-dom';
 import { bindActionCreators, Dispatch } from 'redux';
 
 import * as Action from '@/action';
@@ -7,17 +8,18 @@ import * as AApp from '@/action/app';
 import * as UI from '@/action/ui';
 import { GlobalHeader } from '@/components/Organisms';
 import { IRootState } from '@reducers';
-import { Redirect, Route } from 'react-router-dom';
 
 type Props = IRootState & Action.Type;
 
 class Auth extends React.PureComponent<Props> {
+  // ToDo unsafe
   public componentWillMount() {
-    return this.props.app.authState || this.props.checkSession();
+    return this.props.app.authState || this.props.checkSession;
   }
 
+  // ToDo unsafe
   public componentWillUpdate() {
-    return this.props.app.authState || this.props.checkSession();
+    return this.props.app.authState || this.props.checkSession;
   }
 
   public render() {
@@ -34,7 +36,7 @@ class Auth extends React.PureComponent<Props> {
         <Route children={this.props.children} />
       </div>
     ) : (
-      <Redirect to={'/login'} />
+      <Redirect to='/login' />
     );
   }
 }

@@ -14,7 +14,7 @@ type Props = IRootState & Action.Type;
 class Login extends React.PureComponent<Props> {
   public render() {
     return this.props.app.authState ? (
-      <Redirect to={'/'} />
+      <Redirect to='/' />
     ) : (
       <div>
         <Button onClick={this.props.loginHandler}>login</Button>

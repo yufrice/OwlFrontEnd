@@ -29,7 +29,7 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
             action.meta.file.file = reader.result;
             const strs = action.meta.file.file.split(',');
             action.meta.file.file = strs[1];
-            action.meta.file.format = API.parseFormat(strs[0]);
+            action.meta.file.format = API.parseFormat(strs[0]) || '.jpg';
           } else {
             throw new Error('invalid file format.');
           }
