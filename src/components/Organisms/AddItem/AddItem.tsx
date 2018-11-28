@@ -35,6 +35,7 @@ class AddItem extends React.PureComponent<InjectedFormProps<any> & IProps> {
           onChange={this.props.onChangeFile}
           type='file'
           name='file'
+          accept='image/*'
           multiple={false}
         />
         <Button
