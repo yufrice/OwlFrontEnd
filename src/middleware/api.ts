@@ -22,30 +22,24 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
       return next(action);
     case AddItem.ActionType.submit:
       try {
-        const reader = new FileReader();
         const file = store.getState().app.addItem.rawFile;
-        reader.onload = () => {
-          if (null !== reader.result) {
-            action.meta.file.file = reader.result;
-            const strs = action.meta.file.file.split(',');
-            action.meta.file.file = strs[1];
-            action.meta.file.format = API.parseFormat(strs[0]) || '.jpg';
-            action.meta.file.name = store.getState().form.addItemForm.values.item;
-            action.meta.file.word = store.getState().form.addItemForm.values.word;
-            action.meta.file.desc = store.getState().form.addItemForm.values.desc;
-            const token = localStorage.getItem('sessionID') || '';
-            API.postItem(token, action.meta.file)
-              .then(API.statusCheck)
-              .then(() => store.dispatch(closeAddItem()));
-          } else {
-            throw new Error('invalid file format.');
-          }
-          reader.readAsDataURL(file);
+        API.parseFile(file).then((b6) => {
+          const strs = b6.split(',');
+          action.meta.file.file = strs[1];
+          action.meta.file.format = API.parseFormat(strs[0]);
+          action.meta.file.name = store.getState().form.addItemForm.values.item;
+          action.meta.file.word = store.getState().form.addItemForm.values.word;
+          action.meta.file.desc = store.getState().form.addItemForm.values.desc;
+          const token = localStorage.getItem('sessionID') || '';
+          API.postItem(token, action.meta.file)
+            .then(API.statusCheck)
+            .then(() => store.dispatch(closeAddItem()));
           return next(action);
-        };
+        });
       } catch (err) {
         throw new SubmissionError(err);
       }
+      break;
     case ActionType.searchRequestReceive:
       action.payload.items = action.meta.result;
       next({ type: ActionType.stateFound });

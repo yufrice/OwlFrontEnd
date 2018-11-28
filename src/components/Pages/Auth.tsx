@@ -14,12 +14,12 @@ type Props = IRootState & Action.Type;
 class Auth extends React.PureComponent<Props> {
   // ToDo unsafe
   public componentWillMount() {
-    return this.props.app.authState || this.props.checkSession;
+    return this.props.app.authState || this.props.checkSession();
   }
 
   // ToDo unsafe
   public componentWillUpdate() {
-    return this.props.app.authState || this.props.checkSession;
+    return this.props.app.authState || this.props.checkSession();
   }
 
   public render() {
