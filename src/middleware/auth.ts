@@ -22,7 +22,7 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
       }
     case ActionType.login:
       API.postLogin({
-        ident: store.getState().form.loginForm.values.idend,
+        ident: store.getState().form.loginForm.values.ident,
         password: store.getState().form.loginForm.values.password,
       })
         .then(API.statusCheck)
