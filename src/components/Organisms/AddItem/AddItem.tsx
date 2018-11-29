@@ -1,8 +1,9 @@
-import { TextField } from '@/components/Atoms';
 import Button from '@material-ui/core/Button';
 import * as React from 'react';
 import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 import styled from 'styled-components';
+
+import { TextField } from '@/components/Atoms';
 
 interface IProps {
   onChangeFile: any;
@@ -86,7 +87,6 @@ const StyledForm = styled.form`
   display: inline-flex;
   flex-direction: column;
   justify-content: space-around;
-  // align-items: center;
   height: 100%;
   width: 100%;
 `;

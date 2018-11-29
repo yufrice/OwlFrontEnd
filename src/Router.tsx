@@ -39,16 +39,16 @@ const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         ::-webkit-scrollbar {
             width: 10px;
-        };
+        }
         ::-webkit-scrollbar-track {
             background-color: rgba(0, 0, 0, 0);
-        };
+        }
         ::-webkit-scrollbar-thumb {
             background-color: rgba(0, 0, 0, .05);
             border-radius: 16px;
             box-shadow: 0 0 0 4px slid rgba(255, 255, 255, .3);
-        };
-    };
+        }
+    }
 `;
 
 export default Router;

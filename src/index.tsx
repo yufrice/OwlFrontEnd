@@ -41,11 +41,9 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
-      {/* <BrowserRouter> */}
       <ConnectedRouter history={history}>
         <Router />
       </ConnectedRouter>
-      {/* </BrowserRouter> */}
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('root') as HTMLElement,

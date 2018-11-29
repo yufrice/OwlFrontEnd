@@ -21,7 +21,10 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
         return next(action);
       }
     case ActionType.login:
-      API.postLogin({ ident: 'user', password: 'mypassword' })
+      API.postLogin({
+        ident: store.getState().form.loginForm.itend,
+        password: store.getState().form.loginForm.password,
+      })
         .then(API.statusCheck)
         .then((res) => {
           const token = res.headers.get('access_token');
