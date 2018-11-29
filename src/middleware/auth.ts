@@ -6,6 +6,8 @@ import * as API from './utils';
 /**
  * 認証用の非同期処理
  * 何故かcheckSessionが発火してもauthが変更されない
+ * ユーザ定義のthrowは適切なaction投げるようにして
+ * DOM更新
  *
  * @param store
  */
