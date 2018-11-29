@@ -3,7 +3,7 @@
   "author": "Kikumoto <c1155208@cstu.nit.ac.jp>",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gitlab.com/Aripiprazole/owlFrontend",
+  "homepage": ".",
   "proxy": "http://localhost:8484/api",
   "dependencies": {
     "@material-ui/core": "^3.5.1",
