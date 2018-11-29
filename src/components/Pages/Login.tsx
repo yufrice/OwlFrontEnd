@@ -11,6 +11,7 @@ import * as AApp from '@/action/app';
 import * as UI from '@/action/ui';
 import { TextField } from '@/components/Atoms';
 import { IRootState } from '@reducers';
+import * as Validate from '@utils/validate';
 
 type Props = IRootState & Action.Type;
 
@@ -19,30 +20,42 @@ class Login extends React.PureComponent<InjectedFormProps<any> & Props> {
     return this.props.app.authState ? (
       <Redirect to='/' />
     ) : (
-      <StyledDiv>
-        <form>
-          <Field name='ident' type='text' component={TextField} />
+      <form>
+        <StyledDiv>
+          <Field
+            name='ident'
+            label='User'
+            type='text'
+            component={TextField}
+            validate={[Validate.required]}
+          />
           <Field
             name='password'
+            label='Password'
             type='password'
             autocomplate='current-password'
             component={TextField}
+            validate={[Validate.required]}
           />
           <Button
             variant='contained'
             color='primary'
+            disabled={this.props.invalid}
             // redux-fromからdispathするようにする
             onClick={this.props.loginHandler}
           >
             login
           </Button>
-        </form>
-      </StyledDiv>
+        </StyledDiv>
+      </form>
     );
   }
 }
 
 const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 300px;
   height: 300px;
   position: fixed;

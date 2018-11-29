@@ -37,8 +37,7 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
           }
         })
         .catch((err) => {
-          console.log(err);
-          return next(action);
+          throw new Error('server timeout');
         });
       break;
     case ActionType.logout:
