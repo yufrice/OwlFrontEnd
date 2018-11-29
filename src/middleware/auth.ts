@@ -3,6 +3,12 @@ import { Dispatch, Middleware, MiddlewareAPI } from 'redux';
 import { ActionType } from '@/action/app';
 import * as API from './utils';
 
+/**
+ * 認証用の非同期処理
+ * 何故かcheckSessionが発火してもauthが変更されない
+ *
+ * @param store
+ */
 export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
   action,
 ) => {

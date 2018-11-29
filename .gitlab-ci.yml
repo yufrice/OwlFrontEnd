@@ -25,10 +25,10 @@ deploy:
 pages:
   stage: deploy
   script:
-    - yarn run build-storybook
+    - yarn run typedoc --out ./docs --includeDeclarations src
     - rm -rf public
     - mkdir public
-    - mv storybook-static/* public/
+    - mv docs/* public/
   artifacts:
     paths:
       - public

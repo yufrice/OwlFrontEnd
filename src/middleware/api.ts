@@ -11,6 +11,11 @@ import * as AddItem from '@/action/app/addItem';
 import { closeAddItem } from '@/action/ui';
 import * as API from './utils';
 
+/**
+ * 認証以外の非同期処理
+ * 混沌としてるのでテストかく
+ * @param store
+ */
 export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
   action,
 ) => {

@@ -5,23 +5,31 @@ import { createGlobalStyle } from 'styled-components';
 import { App, Auth, Debug, Edit, Login } from '@/components/Pages';
 import './index.css';
 
-const Router: React.SFC = () => {
-  return (
-    <div>
-      <GlobalStyle />
-      <Switch>
-        <Route path={'/login'} component={Login} />
-        <Auth>
-          <Switch>
-            <Route path={'/edit'} component={Edit} />
-            <Route path={'/debug'} component={Debug} />
-            <Route exact={true} path={'/'} component={App} />
-          </Switch>
-        </Auth>
-      </Switch>
-    </div>
-  );
-};
+/**
+ *
+ *
+ * @class Router
+ * @extends {React.PureComponent}
+ */
+class Router extends React.PureComponent {
+  public render() {
+    return (
+      <div>
+        <GlobalStyle />
+        <Switch>
+          <Route path={'/login'} component={Login} />
+          <Auth>
+            <Switch>
+              <Route path={'/edit'} component={Edit} />
+              <Route path={'/debug'} component={Debug} />
+              <Route exact={true} path={'/'} component={App} />
+            </Switch>
+          </Auth>
+        </Switch>
+      </div>
+    );
+  }
+}
 
 const GlobalStyle = createGlobalStyle`
     html {

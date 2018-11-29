@@ -2,6 +2,16 @@ import { Item } from '@models/app';
 import { Action } from 'redux';
 import * as AddItem from './app/addItem';
 
+/**
+ *
+ *  エラー系のstateはdispatchの途中でエラーコードをthrowしてdom側で拾う感じになおす
+ *  debugまわりもテストデータに移す
+ *  formはsubmitまでredux-formで管理させて発火時にそこから呼び出すようにする
+ *
+ * @export
+ * @enum {number}
+ *
+ */
 export enum ActionType {
   error = 'ERROR',
   debug = 'DEBUG',

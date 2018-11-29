@@ -1,8 +1,9 @@
 {
   "name": "owl-webapp",
+  "author": "Kikumoto <c1155208@cstu.nit.ac.jp>",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://gitlab.com/Aripiprazole/owlFrontend",
   "proxy": "http://localhost:8484/api",
   "dependencies": {
     "@material-ui/core": "^3.5.1",
@@ -64,6 +65,7 @@
     "babel-loader": "^8.0.4",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "ts-loader": "^5.3.0",
+    "typedoc": "^0.13.0",
     "typescript": "^3.1.6",
     "why-did-you-update": "^1.0.6"
   }

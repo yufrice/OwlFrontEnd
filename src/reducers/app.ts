@@ -108,6 +108,10 @@ export const appReducer = (
   }
 };
 
+/**
+ * __test_data__的なのに隔離する予定
+ * @param size
+ */
 const dummyImage = (size: [number, number]) =>
   'https://placehold.jp/' + size[0] + 'x' + size[1] + '.png';
 const sizeSlide = Array.from(Array(10).keys()).map((n) => (n + 1) * 10 + 150);

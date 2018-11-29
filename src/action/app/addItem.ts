@@ -24,6 +24,16 @@ export const submit = (): ISubmit => {
 
 interface IInputFile extends Action {
   type: ActionType.inputFile;
+  /**
+   *
+   * payloadはundefineも許容してmiddlewareでパターンマッチのほうが綺麗な気がする
+   *
+   * @type {{
+   *     file: File;
+   *   }}
+   * @memberof IInputFile
+   *
+   */
   payload: {
     file: File;
   };

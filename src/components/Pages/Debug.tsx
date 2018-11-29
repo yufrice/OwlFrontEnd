@@ -11,6 +11,12 @@ import { IRootState } from '@reducers';
 
 type Props = IRootState & Action.Type;
 
+/**
+ * 消す
+ *
+ * @class Debug
+ * @extends {React.PureComponent<Props>}
+ */
 class Debug extends React.PureComponent<Props> {
   public render() {
     return (

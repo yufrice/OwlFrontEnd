@@ -11,13 +11,24 @@ import { IRootState } from '@reducers';
 
 type Props = IRootState & Action.Type;
 
+/**
+ *
+ *
+ * @class Auth
+ * @extends {React.PureComponent<Props>}
+ */
 class Auth extends React.PureComponent<Props> {
-  // ToDo unsafe
+  /**
+   *  ToDo unsafe あとcheckSession()が発火しない
+   */
   public componentWillMount() {
     return this.props.app.authState || this.props.checkSession();
   }
 
-  // ToDo unsafe
+  /**
+   *  ToDo unsafe
+   *  本来ここでstoreを変更するのは違法
+   */
   public componentWillUpdate() {
     return this.props.app.authState || this.props.checkSession();
   }
