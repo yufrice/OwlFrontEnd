@@ -29,6 +29,7 @@
     "debug": "react-scripts-ts start --env=fullDebug",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
+    "lint:css": "stylelint ./src/**/*.tsx",
     "eject": "react-scripts-ts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -64,6 +65,10 @@
     "@types/why-did-you-update": "^0.0.9",
     "babel-loader": "^8.0.4",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.1",
     "ts-loader": "^5.3.0",
     "typedoc": "^0.13.0",
     "typescript": "^3.1.6",
