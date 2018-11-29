@@ -25,7 +25,7 @@ deploy:
 pages:
   stage: deploy
   script:
-    - yarn run typedoc --out ./docs --includeDeclarations src
+    - yarn run typedoc --out ./docs --includeDeclarations --excludeExternals src
     - rm -rf public
     - mkdir public
     - mv docs/* public/
