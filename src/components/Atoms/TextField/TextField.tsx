@@ -6,6 +6,7 @@ export const TextField: React.SFC<any> = (props: any) => (
     {...props.input}
     type={props.type}
     label={props.label}
+    autoComplete={props.autoComplete}
     {...props.custom}
   />
 );

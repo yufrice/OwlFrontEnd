@@ -24,7 +24,7 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
       }
     case ActionType.login:
       API.postLogin({
-        ident: store.getState().form.loginForm.values.ident,
+        ident: store.getState().form.loginForm.values.username,
         password: store.getState().form.loginForm.values.password,
       })
         .then(API.statusCheck)
@@ -35,11 +35,13 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
             action.payload.auth = true;
             return next(action);
           } else {
-            throw new Error('invalid token');
+            // login failed
+            return next(action);
           }
         })
         .catch((err) => {
-          throw new Error('server timeout');
+          // server timeout
+          return next(action);
         });
       break;
     case ActionType.logout:

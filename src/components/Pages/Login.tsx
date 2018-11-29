@@ -11,7 +11,6 @@ import * as AApp from '@/action/app';
 import * as UI from '@/action/ui';
 import { TextField } from '@/components/Atoms';
 import { IRootState } from '@reducers';
-import * as Validate from '@utils/validate';
 
 type Props = IRootState & Action.Type;
 
@@ -23,19 +22,21 @@ class Login extends React.PureComponent<InjectedFormProps<any> & Props> {
       <form>
         <StyledDiv>
           <Field
-            name='ident'
+            name='username'
             label='User'
             type='text'
+            autofocus={true}
+            required={true}
+            autocomplate='username'
             component={TextField}
-            validate={[Validate.required]}
           />
           <Field
             name='password'
             label='Password'
             type='password'
+            required={true}
             autocomplate='current-password'
             component={TextField}
-            validate={[Validate.required]}
           />
           <Button
             variant='contained'
@@ -68,8 +69,21 @@ const StyledDiv = styled.div`
   transform: translate(-50%, -50%);
 `;
 
+interface ILoginFields {
+  username: string;
+  password: string;
+}
+
+const validation = (values: ILoginFields) => {
+  if (!values.username || !values.password) {
+    return { username: 'error' } as ILoginFields;
+  }
+  return {};
+};
+
 const LoginForm = reduxForm({
   form: 'loginForm',
+  validate: validation,
 })(Login);
 
 export default connect(
