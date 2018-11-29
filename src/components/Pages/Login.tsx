@@ -3,7 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Field, Form, InjectedFormProps, reduxForm } from 'redux-form';
+import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 import styled from 'styled-components';
 
 import * as Action from '@/action';
@@ -20,9 +20,14 @@ class Login extends React.PureComponent<InjectedFormProps<any> & Props> {
       <Redirect to='/' />
     ) : (
       <StyledDiv>
-        <Form>
+        <form>
           <Field name='ident' type='text' component={TextField} />
-          <Field name='password' type='password' component={TextField} />
+          <Field
+            name='password'
+            type='password'
+            autocomplate='current-password'
+            component={TextField}
+          />
           <Button
             variant='contained'
             color='primary'
@@ -31,7 +36,7 @@ class Login extends React.PureComponent<InjectedFormProps<any> & Props> {
           >
             login
           </Button>
-        </Form>
+        </form>
       </StyledDiv>
     );
   }
@@ -41,7 +46,7 @@ const StyledDiv = styled.div`
   width: 300px;
   height: 300px;
   position: fixed;
-  background-color: white;
+  background: white;
   border-radius: 2px;
   box-shadow: 0 1px 3px;
   padding: 30px;
