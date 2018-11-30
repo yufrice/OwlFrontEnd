@@ -23,4 +23,5 @@ jobs:
 
       - run: yarn run lint:ts
       - run: yarn run lint:css
-      - run: yarn test
+      - run: yarn test --coverage
+      - run: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
