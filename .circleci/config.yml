@@ -2,14 +2,12 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:alpine
+      - image: node:lts
 
     working_directory: ~/repo
 
     steps:
       - checkout
-
-      - run: apk add --no-cache ca-certificates
 
       - restore_cache:
           keys:
