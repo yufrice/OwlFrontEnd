@@ -23,12 +23,6 @@ deploy:
     paths:
       - build
 
-test:
-  stage: test
-  script:
-    - yarn global add codecov
-    - codecov
-
 pages:
   stage: deploy
   script:
