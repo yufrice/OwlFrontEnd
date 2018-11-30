@@ -36,9 +36,13 @@ class Edit extends React.PureComponent<Props> {
   }
 }
 
-const StyledPaper = styled(Paper as React.SFC<PaperProps>)``;
+const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
+  top: 0px;
+`;
 
-const StyledButton = styled(Button as React.SFC<ButtonProps>)``;
+const StyledButton = styled(Button as React.SFC<ButtonProps>)`
+  top: 0px;
+`;
 
 export default connect(
   (state: Props) => ({
