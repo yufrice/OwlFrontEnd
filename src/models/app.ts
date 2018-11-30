@@ -27,6 +27,7 @@ export interface IAddItemState {
 }
 
 export interface ItemInput {
+  id: string;
   name: string;
   word: string;
   desc: string;
@@ -35,6 +36,7 @@ export interface ItemInput {
 }
 
 export const initItemInput: ItemInput = {
+  id: '',
   name: '',
   word: '',
   desc: '',
