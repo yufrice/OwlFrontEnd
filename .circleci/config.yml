@@ -12,6 +12,8 @@ jobs:
           keys:
             - dependencies-{{ checksum "yarn.lock" }}
 
+      - run: apk add --no-cache ca-certificates
+
       - run: yarn install
 
       - run: yarn build
