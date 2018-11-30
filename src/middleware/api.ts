@@ -20,16 +20,19 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
   action,
 ) => {
   switch (action.type) {
+    // input type=file で発火 メモリには乗らない
     case AddItem.ActionType.inputFile:
       if (null !== action.meta.input.target) {
         action.payload.file = action.meta.input.target.files[0];
       }
       return next(action);
+    // アイテム送信 画像はここでメモリにのる
     case AddItem.ActionType.submit:
       try {
         const file = store.getState().app.addItem.rawFile;
         API.parseFile(file).then((b6) => {
           const strs = b6.split(',');
+          // この時点で値は存在するはずなのでオブジェクトごと代入するようにする
           action.meta.file.file = strs[1];
           action.meta.file.format = API.parseFormat(strs[0]);
           action.meta.file.name = store.getState().form.addItemForm.values.item;
@@ -45,10 +48,12 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
         throw new SubmissionError(err);
       }
       break;
+    // item 検索の最終処理
     case ActionType.searchRequestReceive:
       action.payload.items = action.meta.result;
       next({ type: ActionType.stateFound });
       return next(action);
+    //  get vectorをパースして検索クエリ
     case ActionType.searchRequestGet:
       const params = new URLSearchParams();
       Seq([{ word: action.meta.word }].concat(action.meta.inputs))
@@ -72,13 +77,19 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
         });
 
       return next(action);
+    // 検索ボタンからの発火
     case ActionType.submitSearch:
       API.getVector(store.getState().form.searchForm.values.word0)
         .then((res) => API.statusCheck(res))
         .then((res) => res.json())
         .then((res) => {
           if (0 === res.result.length) {
-            return next({ type: ActionType.notFound });
+            store.dispatch(
+              searchRequestGet(
+                [],
+                store.getState().form.searchForm.values.word0,
+              ),
+            );
           } else {
             store.dispatch(
               searchRequestGet(
