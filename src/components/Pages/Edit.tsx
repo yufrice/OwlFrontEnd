@@ -38,7 +38,8 @@ class Edit extends React.PureComponent<Props> {
 }
 
 const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
-  top: 0px;
+  margin: 10%;
+  padding: 10%;
 `;
 
 const StyledButton = styled(Button as React.SFC<ButtonProps>)`
