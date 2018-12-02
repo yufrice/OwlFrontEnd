@@ -1,4 +1,3 @@
-import { Seq } from 'immutable';
 import { Dispatch, Middleware, MiddlewareAPI } from 'redux';
 import { SubmissionError } from 'redux-form';
 
@@ -61,10 +60,10 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
     //  get vectorをパースして検索クエリ
     case ActionType.searchRequestGet:
       const params = new URLSearchParams();
-      Seq([{ word: action.meta.word }].concat(action.meta.inputs))
+      [action.meta.word]
+        .concat(action.meta.inputs)
         .slice(0, 5)
-        .map((str: any) => params.append('search', str.word))
-        .toArray();
+        .map((str: string) => params.append('search', str));
       API.getItem(params)
         .then(API.statusCheck)
         .then((res) => res.json())

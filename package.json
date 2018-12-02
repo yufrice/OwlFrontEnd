@@ -11,7 +11,6 @@
     "@material-ui/lab": "^3.0.0-alpha.24",
     "connected-react-router": "5.0.1",
     "history": "^4.7.2",
-    "immutable": "^4.0.0-rc.12",
     "node-fetch": "^2.3.0",
     "normalize.css": "^8.0.1",
     "react": "^16.6.1",
