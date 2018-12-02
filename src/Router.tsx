@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
 import { App, Auth, DashBoard, Edit, Login } from '@/components/Pages';
-import './index.css';
 
 /**
  *
@@ -11,7 +10,7 @@ import './index.css';
  * @class Router
  * @extends {React.PureComponent}
  */
-class Router extends React.PureComponent {
+class Router extends React.Component {
   public render() {
     return (
       <div>

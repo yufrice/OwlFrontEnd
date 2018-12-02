@@ -1,7 +1,6 @@
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
-import 'normalize.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -14,6 +13,9 @@ import { theme } from '@/components/Atoms';
 import { api, auth } from '@/middleware';
 import rootReducer from '@/reducers';
 import Router from './Router';
+
+import 'normalize.css';
+import './index.css';
 
 if (process.env.NODE_ENV === 'fullDebug') {
   whyDidYouUpdate(React);
