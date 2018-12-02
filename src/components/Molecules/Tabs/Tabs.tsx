@@ -1,10 +1,12 @@
 import Tab from '@material-ui/core/Tab';
 import _Tabs, { TabsProps } from '@material-ui/core/Tabs';
-import { Dashboard, Edit, Search, Settings } from '@material-ui/icons';
+import Dashboard from '@material-ui/icons/Dashboard';
+import Edit from '@material-ui/icons/Edit';
+import Search from '@material-ui/icons/Search';
+import Settings from '@material-ui/icons/Settings';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
 import { IProps } from './type';
 
 export class Tabs extends React.PureComponent<IProps> {

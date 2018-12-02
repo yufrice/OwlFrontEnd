@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
