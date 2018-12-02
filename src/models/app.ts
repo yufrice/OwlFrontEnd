@@ -1,6 +1,9 @@
 export interface IAppState {
   state: 'init' | 'processing' | 'found' | 'notFound' | 'error';
-  authState: boolean;
+  serverState: IServerState;
+  version: IVersion;
+  loading: boolean;
+  auth: boolean;
   inputs: Inputs;
   addItem: IAddItemState;
   result: Item[] | undefined;
@@ -10,6 +13,16 @@ export interface Inputs {
   input0: string;
   input1: string;
   input2: string;
+}
+
+export interface IServerState {
+  alive: boolean;
+  version: string;
+}
+
+export interface IVersion {
+  localVersion: string;
+  headVersion: string;
 }
 
 export interface Item {

@@ -14,7 +14,8 @@ import * as AddItem from './app/addItem';
  */
 export enum ActionType {
   error = 'ERROR',
-  debug = 'DEBUG',
+  loading = 'LOADING',
+  done = 'DONE',
   initForm = 'INIT_FORM',
   stateFound = 'STATE_FOUND',
   notFound = 'NOT_FOUND',
@@ -28,20 +29,28 @@ export enum ActionType {
   checkSession = 'CHECK_SESSION',
 }
 
-interface ITestFond extends Action {
-  type: ActionType.debug;
-}
-
-export const testFond = (): ITestFond => ({
-  type: ActionType.debug,
-});
-
 interface IError extends Action {
   type: ActionType.error;
 }
 
 export const searchError = (): IError => ({
   type: ActionType.error,
+});
+
+interface ILoading extends Action {
+  type: ActionType.loading;
+}
+
+export const loading = (): ILoading => ({
+  type: ActionType.loading,
+});
+
+interface IDone extends Action {
+  type: ActionType.done;
+}
+
+export const done = (): IDone => ({
+  type: ActionType.done,
 });
 
 interface IInitForm extends Action {
@@ -182,8 +191,9 @@ export const checkSession = (): ICheckSession => ({
 });
 
 export type Type =
-  | ITestFond
   | IError
+  | ILoading
+  | IDone
   | IInitForm
   | IStateFound
   | INotFound
@@ -199,8 +209,9 @@ export type Type =
 
 export const actions = Object.assign(
   {
-    testFond,
     searchError,
+    loading,
+    done,
     initForm,
     stateFound,
     notFound,
