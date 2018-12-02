@@ -8,7 +8,7 @@ export const theme = (active: boolean) =>
       useNextVariants: true,
     },
     palette: {
-      type: active ? 'light' : 'dark',
+      type: active ? 'dark' : 'light',
       primary: Color.blue,
       secondary: {
         main: '#f44336',
