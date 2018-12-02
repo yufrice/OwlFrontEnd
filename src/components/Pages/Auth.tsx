@@ -26,12 +26,9 @@ class Auth extends React.PureComponent<Props> {
     return this.props.app.auth ? (
       <div>
         <GlobalHeader
-          onClick={this.props.openConfigView}
-          onClose={this.props.closeConfigView}
           onChange={this.props.changeTab}
           logoutHandler={this.props.logoutHandler}
           tabIndex={this.props.ui.tabIndex}
-          configActive={this.props.ui.configActive}
         />
         <Route children={this.props.children} />
       </div>
