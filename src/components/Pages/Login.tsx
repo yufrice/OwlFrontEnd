@@ -16,7 +16,7 @@ type Props = IRootState & Action.Type;
 
 class Login extends React.PureComponent<InjectedFormProps<any> & Props> {
   public render() {
-    return this.props.app.authState ? (
+    return this.props.app.auth ? (
       <Redirect to='/' />
     ) : (
       <form>
