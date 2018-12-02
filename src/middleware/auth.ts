@@ -1,3 +1,4 @@
+import { push } from 'connected-react-router';
 import { Dispatch, Middleware, MiddlewareAPI } from 'redux';
 
 import { ActionType } from '@/action/app';
@@ -15,14 +16,18 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
   action,
 ) => {
   switch (action.type) {
+    // state初期状態でのトークン確認
+    // ToDo api問い合わせ
     case ActionType.checkSession:
       if (localStorage.getItem('sessionID')) {
         action.payload.auth = true;
-        return next(action);
-      } else {
-        return next(action);
       }
+      return next(action);
+    // アクセストークンをリクエストする
     case ActionType.login:
+      // loading
+      store.dispatch({ type: ActionType.loading });
+
       API.postLogin({
         ident: store.getState().form.loginForm.values.username,
         password: store.getState().form.loginForm.values.password,
@@ -44,9 +49,12 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
           return next(action);
         });
       break;
+    // サーバー側にセッション削除実装したら問い合わせるにする
     case ActionType.logout:
+      next(action);
+      store.dispatch(push('/login'));
       localStorage.clear();
-      break;
+      return action;
   }
   return next(action);
 };

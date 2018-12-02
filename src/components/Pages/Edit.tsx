@@ -31,6 +31,7 @@ class Edit extends React.PureComponent<Props> {
           size={[50, 50]}
           child={<this.AddItem />}
         />
+        ここにリスト
       </StyledPaper>
     );
   }

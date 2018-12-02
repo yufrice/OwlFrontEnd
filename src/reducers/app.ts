@@ -1,39 +1,53 @@
-import { randomBytes } from 'crypto';
-
 import { ActionType, Type } from '@/action/app';
-import { IAppState, Inputs, Item } from '@models/app';
+import * as Model from '@models/app';
 import * as AddItem from './app/addItem';
 
-const initInput: Inputs = {
+const initInput: Model.Inputs = {
   input0: '',
   input1: '',
   input2: '',
 };
 
-const initialState: IAppState = {
+const initServerState: Model.IServerState = {
+  alive: false,
+  version: '',
+};
+
+const initVersion: Model.IVersion = {
+  localVersion: '',
+  headVersion: '',
+};
+
+export const initialState: Model.IAppState = {
   state: 'init',
-  authState: false,
+  serverState: initServerState,
+  version: initVersion,
+  loading: false,
+  auth: false,
   inputs: initInput,
   addItem: AddItem.initialState,
   result: undefined,
 };
 
 export const appReducer = (
-  state: IAppState = initialState,
+  state: Model.IAppState = initialState,
   action: Type,
-): IAppState => {
+): Model.IAppState => {
   switch (action.type) {
-    case ActionType.debug:
-      return {
-        ...state,
-        state: 'found',
-        inputs: initInput,
-        result: items(Math.floor(Math.random() * 20)),
-      };
     case ActionType.error:
       return {
         ...state,
         state: 'error',
+      };
+    case ActionType.loading:
+      return {
+        ...state,
+        loading: true,
+      };
+    case ActionType.done:
+      return {
+        ...state,
+        loading: false,
       };
     case ActionType.initForm:
       return {
@@ -91,37 +105,20 @@ export const appReducer = (
     case ActionType.login:
       return {
         ...state,
-        authState: action.payload.auth,
+        loading: false,
+        auth: action.payload.auth,
       };
     case ActionType.logout:
       return {
         ...state,
-        authState: false,
+        auth: false,
       };
     case ActionType.checkSession:
-      return { ...state, authState: action.payload.auth };
+      return { ...state, auth: action.payload.auth };
     default:
       return {
         ...state,
         addItem: AddItem.addItemReducer(state.addItem, action),
       };
   }
-};
-
-/**
- * __test_data__的なのに隔離する予定
- * @param size
- */
-const dummyImage = (size: [number, number]) =>
-  'https://placehold.jp/' + size[0] + 'x' + size[1] + '.png';
-const sizeSlide = Array.from(Array(10).keys()).map((n) => (n + 1) * 10 + 150);
-
-const items: (n: number) => Item[] = (num: number) => {
-  return Array.from(Array(num).keys()).map((n: number) => ({
-    id: randomBytes(8).toString('hex'),
-    name: 'ITEM' + n.toString(),
-    desc: '',
-    word: '',
-    image: dummyImage([sizeSlide[n], sizeSlide[9 - n]]),
-  }));
 };

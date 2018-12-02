@@ -18,23 +18,12 @@ type Props = IRootState & Action.Type;
  * @extends {React.PureComponent<Props>}
  */
 class Auth extends React.PureComponent<Props> {
-  /**
-   *  ToDo unsafe あとcheckSession()が発火しない
-   */
-  public componentWillMount() {
-    return this.props.app.authState || this.props.checkSession();
-  }
-
-  /**
-   *  ToDo unsafe
-   *  本来ここでstoreを変更するのは違法
-   */
-  public componentWillUpdate() {
-    return this.props.app.authState || this.props.checkSession();
+  public componentDidMount() {
+    return this.props.app.auth || this.props.checkSession();
   }
 
   public render() {
-    return this.props.app.authState ? (
+    return this.props.app.auth ? (
       <div>
         <GlobalHeader
           onClick={this.props.openConfigView}
