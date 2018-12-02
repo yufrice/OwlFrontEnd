@@ -29,7 +29,8 @@ export class GlobalHeader extends React.PureComponent<IProps> {
         <Modal
           open={this.props.configActive}
           onClose={this.props.onClose}
-          size={[50, 50]}
+          size={[100, 100]}
+          background={'rgba(0, 0, 0, 0.6)'}
           child={<ConfigView />}
         />
       </StyledHeader>

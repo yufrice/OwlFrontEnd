@@ -12,8 +12,12 @@ export class Modal extends React.Component<IProps> {
         onClose={this.props.onClose}
         aria-labelledby='modal-title'
         aria-describedby='modal-description'
+        disableAutoFocus={false}
       >
-        <StyledModalContent size={this.props.size!}>
+        <StyledModalContent
+          background={this.props.background}
+          size={this.props.size!}
+        >
           {this.props.child}
         </StyledModalContent>
       </_Modal>
@@ -21,7 +25,10 @@ export class Modal extends React.Component<IProps> {
   }
 }
 
-const StyledModalContent = styled.div<{ size: [number, number] }>`
+const StyledModalContent = styled.div<{
+  size: [number, number];
+  background?: string;
+}>`
   width: ${(props) => props.size[0]}%;
   height: ${(props) => props.size[1]}%;
   position: fixed;
@@ -32,7 +39,7 @@ const StyledModalContent = styled.div<{ size: [number, number] }>`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: ${(props) => props.background || 'white'};
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   z-index: 988;
