@@ -28,6 +28,7 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
       return next(action);
     // アイテム送信 画像はここでメモリにのる
     case AddItem.ActionType.submit:
+      store.dispatch({ type: ActionType.loading });
       try {
         const file = store.getState().app.addItem.rawFile;
         API.parseFile(file).then((b6) => {
@@ -41,10 +42,14 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
           const token = localStorage.getItem('sessionID') || '';
           API.postItem(token, action.meta.file)
             .then(API.statusCheck)
-            .then(() => store.dispatch(closeAddItem()));
+            .then(() => {
+              store.dispatch({ type: ActionType.done });
+              store.dispatch(closeAddItem());
+            });
           return next(action);
         });
       } catch (err) {
+        store.dispatch({ type: ActionType.done });
         throw new SubmissionError(err);
       }
       break;
