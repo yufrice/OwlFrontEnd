@@ -32,12 +32,13 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
         const file = store.getState().app.addItem.rawFile;
         API.parseFile(file).then((b6) => {
           const strs = b6.split(',');
-          // この時点で値は存在するはずなのでオブジェクトごと代入するようにする
-          action.meta.file.file = strs[1];
-          action.meta.file.format = API.parseFormat(strs[0]);
-          action.meta.file.name = store.getState().form.addItemForm.values.item;
-          action.meta.file.word = store.getState().form.addItemForm.values.word;
-          action.meta.file.desc = store.getState().form.addItemForm.values.desc;
+          action.meta.file = {
+            name: store.getState().form.addItemForm.values.item,
+            word: store.getState().form.addItemForm.values.word,
+            file: strs[1],
+            format: API.parseFormat(strs[0]),
+            desc: store.getState().form.addItemForm.values.desc,
+          };
           const token = localStorage.getItem('sessionID') || '';
           API.postItem(token, action.meta.file)
             .then(API.statusCheck)
