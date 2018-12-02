@@ -26,11 +26,11 @@ class DashBoard extends React.PureComponent<any> {
     );
     return (
       <StyledDiv>
-        <StyledPaper>
+        <StyledApp>
           <Typography variant='h5'> Server </Typography>
           {serverStatus} Version: {this.props.app.serverState.version}
-        </StyledPaper>
-        <StyledPaper>
+        </StyledApp>
+        <StyledServer>
           <Typography variant='h5'> WebAPP </Typography>
           <Typography>
             Local Version: {this.props.app.version.localVersion}
@@ -39,7 +39,10 @@ class DashBoard extends React.PureComponent<any> {
             Head Version: {this.props.app.version.headVersion}
           </Typography>
           <Button variant='contained'>Update</Button>
-        </StyledPaper>
+        </StyledServer>
+        <StyledLog>
+          <Typography variant='h5'> Log</Typography>
+        </StyledLog>
       </StyledDiv>
     );
   }
@@ -48,10 +51,27 @@ class DashBoard extends React.PureComponent<any> {
 const StyledDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'app server'
+    'log log';
 `;
+
 const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
   padding: 30px;
   margin: 10px;
+`;
+
+const StyledApp = styled(StyledPaper)`
+  grid-area: app;
+`;
+
+const StyledServer = styled(StyledPaper)`
+  grid-area: server;
+`;
+
+const StyledLog = styled(StyledPaper)`
+  grid-area: log;
 `;
 
 export default connect(
