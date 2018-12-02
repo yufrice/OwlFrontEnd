@@ -1,6 +1,7 @@
 import { ActionType, Type } from '@/action/app';
 import * as Model from '@models/app';
 import * as AddItem from './app/addItem';
+import * as Config from './app/config';
 
 const initInput: Model.Inputs = {
   input0: '',
@@ -20,6 +21,7 @@ const initVersion: Model.IVersion = {
 
 export const initialState: Model.IAppState = {
   state: 'init',
+  config: Config.initConfig,
   serverState: initServerState,
   version: initVersion,
   loading: false,
@@ -119,6 +121,7 @@ export const appReducer = (
       return {
         ...state,
         addItem: AddItem.addItemReducer(state.addItem, action),
+        config: Config.configReducer(state.config, action),
       };
   }
 };

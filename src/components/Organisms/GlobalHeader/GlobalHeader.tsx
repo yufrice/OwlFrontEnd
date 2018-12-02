@@ -2,12 +2,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography, { TypographyProps } from '@material-ui/core/Typography';
-import MenuIcon from '@material-ui/icons/Menu';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { IconButton, Modal, Tabs } from '@/components/Molecules';
-import { ConfigView } from '@/components/Organisms/ConfigView';
+import { Tabs } from '@/components/Molecules';
 import { IProps } from './type';
 
 export class GlobalHeader extends React.PureComponent<IProps> {
@@ -20,19 +18,9 @@ export class GlobalHeader extends React.PureComponent<IProps> {
               TITLE
             </Title>
             <Button onClick={this.props.logoutHandler}>LogOut</Button>
-            <IconButton onClick={this.props.onClick}>
-              <MenuIcon />
-            </IconButton>
           </Toolbar>
           <Tabs tabIndex={this.props.tabIndex} onChange={this.props.onChange} />
         </AppBar>
-        <Modal
-          open={this.props.configActive}
-          onClose={this.props.onClose}
-          size={[100, 100]}
-          background={'rgba(0, 0, 0, 0.6)'}
-          child={<ConfigView />}
-        />
       </StyledHeader>
     );
   }

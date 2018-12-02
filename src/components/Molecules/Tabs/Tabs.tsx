@@ -1,6 +1,6 @@
 import Tab from '@material-ui/core/Tab';
 import _Tabs, { TabsProps } from '@material-ui/core/Tabs';
-import { Dashboard, Edit, Search } from '@material-ui/icons';
+import { Dashboard, Edit, Search, Settings } from '@material-ui/icons';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -32,6 +32,12 @@ export class Tabs extends React.PureComponent<IProps> {
           icon={<Dashboard />}
           component={Link}
           {...{ to: '/dashBoard' } as any}
+        />
+        <Tab
+          label={'Config'}
+          icon={<Settings />}
+          component={Link}
+          {...{ to: '/config' } as any}
         />
       </StyledTabs>
     );

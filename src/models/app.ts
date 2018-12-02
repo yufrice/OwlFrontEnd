@@ -1,5 +1,6 @@
 export interface IAppState {
   state: 'init' | 'processing' | 'found' | 'notFound' | 'error';
+  config: IConfig;
   serverState: IServerState;
   version: IVersion;
   loading: boolean;
@@ -7,6 +8,10 @@ export interface IAppState {
   inputs: Inputs;
   addItem: IAddItemState;
   result: Item[] | undefined;
+}
+
+export interface IConfig {
+  searchLimit: number;
 }
 
 export interface Inputs {

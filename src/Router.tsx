@@ -2,7 +2,15 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import { App, Auth, DashBoard, Edit, Loading, Login } from '@/components/Pages';
+import {
+  App,
+  Auth,
+  Config,
+  DashBoard,
+  Edit,
+  Loading,
+  Login,
+} from '@/components/Pages';
 
 /**
  *
@@ -21,6 +29,7 @@ class Router extends React.Component {
             <Switch>
               <Route path={'/edit'} component={Edit} />
               <Route path={'/dashboard'} component={DashBoard} />
+              <Route path={'/config'} component={Config} />
               <Route exact={true} path={'/'} component={App} />
             </Switch>
           </Auth>

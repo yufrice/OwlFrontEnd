@@ -1,6 +1,7 @@
 import { Item } from '@models/app';
 import { Action } from 'redux';
 import * as AddItem from './app/addItem';
+import * as Config from './app/config';
 
 /**
  *
@@ -205,7 +206,8 @@ export type Type =
   | ILogin
   | ILogout
   | ICheckSession
-  | AddItem.Type;
+  | AddItem.Type
+  | Config.Type;
 
 export const actions = Object.assign(
   {
@@ -225,4 +227,5 @@ export const actions = Object.assign(
     checkSession,
   },
   AddItem.actions,
+  Config.actions,
 );
