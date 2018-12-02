@@ -19,16 +19,16 @@ class DashBoard extends React.PureComponent<any> {
   }
 
   public render() {
+    const serverStatus = this.props.app.serverState.alive ? (
+      <Typography children={'Alive'} color='primary' />
+    ) : (
+      <Typography children={'Dead'} color='secondary' />
+    );
     return (
       <StyledDiv>
         <StyledPaper>
           <Typography variant='h5'> Server </Typography>
-          {this.props.app.serverState.alive ? (
-            <Typography color='primary'>Alive</Typography>
-          ) : (
-            <Typography color='secondary'>Dead</Typography>
-          )}
-          <Typography>Version: {this.props.app.serverState.version}</Typography>
+          {serverStatus} Version: {this.props.app.serverState.version}
         </StyledPaper>
         <StyledPaper>
           <Typography variant='h5'> WebAPP </Typography>
