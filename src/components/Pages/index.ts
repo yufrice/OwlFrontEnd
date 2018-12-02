@@ -1,7 +1,7 @@
 import App from './App';
 import Auth from './Auth';
-import Debug from './Debug';
+import DashBoard from './DashBoard';
 import Edit from './Edit';
 import Login from './Login';
 
-export {App, Auth, Debug, Edit, Login};
+export { App, Auth, DashBoard, Edit, Login };

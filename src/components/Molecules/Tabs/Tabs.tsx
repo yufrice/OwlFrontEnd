@@ -1,5 +1,6 @@
 import Tab from '@material-ui/core/Tab';
 import _Tabs, { TabsProps } from '@material-ui/core/Tabs';
+import { Dashboard, Edit, Search } from '@material-ui/icons';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -15,22 +16,22 @@ export class Tabs extends React.PureComponent<IProps> {
         fullWidth={true}
       >
         <Tab
-          key={'Search'}
           label={'Search'}
+          icon={<Search />}
           component={Link}
           {...{ to: '/' } as any}
         />
         <Tab
-          key={'Edit'}
           label={'Edit'}
+          icon={<Edit />}
           component={Link}
           {...{ to: '/edit' } as any}
         />
         <Tab
-          key={'Debug'}
-          label={'Debug'}
+          label={'DashBoard'}
+          icon={<Dashboard />}
           component={Link}
-          {...{ to: '/debug' } as any}
+          {...{ to: '/dashBoard' } as any}
         />
       </StyledTabs>
     );
