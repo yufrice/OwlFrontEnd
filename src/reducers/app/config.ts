@@ -4,6 +4,7 @@ import * as Model from '@models/app';
 
 export const initConfig: Model.IConfig = {
   searchLimit: 10,
+  darkTheme: false,
 };
 
 export const configReducer = (
