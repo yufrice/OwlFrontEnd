@@ -1,28 +1,10 @@
 import { Action } from 'redux';
 
 export enum ActionType {
-  openConfigView = 'OPEN_CONFIG_VIEW',
-  closeConfigView = 'CLOSE_CONFIG_VIEW',
   openAddItem = 'OPEN_ADDITEM',
   closeAddItem = 'CLOSE_ADDITEM',
   changeTab = 'CHANGE_TAB',
 }
-
-interface IOpenConfigViewAction extends Action {
-  type: ActionType.openConfigView;
-}
-
-const openConfigView = (): IOpenConfigViewAction => ({
-  type: ActionType.openConfigView,
-});
-
-interface ICloseConfigViewAction extends Action {
-  type: ActionType.closeConfigView;
-}
-
-const closeConfigView = (): ICloseConfigViewAction => ({
-  type: ActionType.closeConfigView,
-});
 
 interface IOpenAddItem extends Action {
   type: ActionType.openAddItem;
@@ -57,16 +39,9 @@ export const changeTab = (
   },
 });
 
-export type Type =
-  | IOpenConfigViewAction
-  | ICloseConfigViewAction
-  | IOpenAddItem
-  | ICloseAddItem
-  | IChangeTab;
+export type Type = IOpenAddItem | ICloseAddItem | IChangeTab;
 
 export const actions = {
-  openConfigView,
-  closeConfigView,
   openAddItem,
   closeAddItem,
   changeTab,

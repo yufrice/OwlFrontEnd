@@ -1,13 +1,11 @@
 import { ActionType, Type } from '@/action/ui';
 
 export interface IUIState {
-  configActive: boolean;
   addItemActive: boolean;
   tabIndex: number;
 }
 
 const initialState: IUIState = {
-  configActive: false,
   addItemActive: false,
   tabIndex: 0,
 };
@@ -17,16 +15,6 @@ export const uiReducer = (
   action: Type,
 ): IUIState => {
   switch (action.type) {
-    case ActionType.openConfigView:
-      return {
-        ...state,
-        configActive: true,
-      };
-    case ActionType.closeConfigView:
-      return {
-        ...state,
-        configActive: false,
-      };
     case ActionType.openAddItem:
       return {
         ...state,
