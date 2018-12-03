@@ -2,10 +2,7 @@ import CircularProgress, {
   CircularProgressProps,
 } from '@material-ui/core/CircularProgress';
 import * as React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
-
-import { IRootState } from '@reducers';
 
 interface IProps {
   active: boolean;
@@ -22,6 +19,4 @@ const StyledProgress = styled(CircularProgress as React.SFC<
   left: 50%;
 `;
 
-export default connect((state: IRootState) => ({
-  active: state.app.loading,
-}))(Loading);
+export default Loading;

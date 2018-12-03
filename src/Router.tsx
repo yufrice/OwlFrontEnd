@@ -18,7 +18,9 @@ import { IRootState } from '@reducers';
 
 interface IProps {
   active: boolean;
+  loading: boolean;
 }
+
 /**
  *
  *
@@ -41,7 +43,7 @@ class Router extends React.Component<IProps> {
             </Switch>
           </Auth>
         </Switch>
-        <Loading />
+        <Loading active={this.props.loading} />
       </MuiThemeProvider>
     );
   }
@@ -70,5 +72,6 @@ const GlobalStyle = createGlobalStyle<{ theme: boolean }>`
 export default withRouter<any>(
   connect((state: IRootState) => ({
     active: state.app.config.theme,
+    loading: state.app.loading,
   }))(Router),
 );
