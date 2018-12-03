@@ -19,10 +19,13 @@ export const auth: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
     // state初期状態でのトークン確認
     // ToDo api問い合わせ
     case ActionType.checkSession:
-      if (localStorage.getItem('sessionID')) {
-        action.payload.auth = true;
-      }
-      return next(action);
+      API.getLogin(localStorage.getItem('sessionID') || '')
+        .then(API.statusCheck)
+        .then((res) => {
+          action.payload.auth = true;
+          return next(action);
+        });
+      break;
     // アクセストークンをリクエストする
     case ActionType.login:
       // loading

@@ -36,14 +36,13 @@ export const postItem = async (token: string, item: ItemInput) => {
 
 /**
  *  GET /api/login
- *  body: json <body>
- * @param body
+ *  header: Authorization: <body>
+ * @param header
  */
-export const getLogin = async (body: string) => {
+export const getLogin = async (header: string) => {
   return await fetch('api/login', {
     method: 'GET',
-    body: JSON.stringify({ Authorization: body }),
-    headers: { 'Content-Type': 'application/json' },
+    headers: { Authorization: header },
   });
 };
 
