@@ -11,21 +11,29 @@ import styled from 'styled-components';
 import { actions } from '@/action/app/config';
 import { IRootState } from '@reducers';
 
-const Config: React.SFC = (props: any) => (
-  <StyledPaper>
-    <Typography> 単語距離の閾値 </Typography>
-    <StyledSlider
-      min={1}
-      max={100}
-      onChange={props.changeLimit}
-      value={props.config.searchLimit}
-    />
-    <FormControlLabel
-      control={<Switch color='primary' />}
-      label='ダークテーマ'
-    />
-  </StyledPaper>
-);
+class Config extends React.Component<any> {
+  public render() {
+    return (
+      <StyledPaper>
+        <Typography color='textPrimary'>
+          単語距離の閾値: {this.props.config.searchLimit}{' '}
+        </Typography>
+        <StyledSlider
+          min={1}
+          max={100}
+          step={1}
+          onChange={this.props.changeLimit}
+          value={this.props.config.searchLimit}
+        />
+        <FormControlLabel
+          control={<Switch color='primary' onChange={this.props.changeTheme} />}
+          checked={this.props.config.theme}
+          label={<Typography color='textPrimary'>ダークテーマ</Typography>}
+        />
+      </StyledPaper>
+    );
+  }
+}
 
 const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
   margin: 10%;

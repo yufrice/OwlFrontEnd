@@ -3,5 +3,4 @@ export interface IProps {
   open?: boolean;
   onClose?: () => void;
   size?: [number, number];
-  background?: string;
 }

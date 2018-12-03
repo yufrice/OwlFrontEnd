@@ -1,4 +1,5 @@
 import _Modal from '@material-ui/core/Modal';
+import Paper, { PaperProps } from '@material-ui/core/Paper';
 import * as React from 'react';
 import styled from 'styled-components';
 
@@ -14,10 +15,7 @@ export class Modal extends React.Component<IProps> {
         aria-describedby='modal-description'
         disableAutoFocus={false}
       >
-        <StyledModalContent
-          background={this.props.background}
-          size={this.props.size!}
-        >
+        <StyledModalContent size={this.props.size!}>
           {this.props.child}
         </StyledModalContent>
       </_Modal>
@@ -25,9 +23,8 @@ export class Modal extends React.Component<IProps> {
   }
 }
 
-const StyledModalContent = styled.div<{
+const StyledModalContent = styled(Paper as React.SFC<PaperProps>)<{
   size: [number, number];
-  background?: string;
 }>`
   width: ${(props) => props.size[0]}%;
   height: ${(props) => props.size[1]}%;
@@ -39,7 +36,6 @@ const StyledModalContent = styled.div<{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: ${(props) => props.background || 'white'};
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   z-index: 988;

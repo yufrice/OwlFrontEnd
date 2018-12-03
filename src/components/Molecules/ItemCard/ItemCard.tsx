@@ -14,7 +14,9 @@ export class ItemCard extends React.PureComponent<IProps> {
         <StyledCardImg src={this.props.image} />
         <StyledContent container={true} spacing={16}>
           <Grid item={true}>
-            <Typography variant={'h6'}>{this.props.title}</Typography>
+            <Typography color='textPrimary' variant={'h6'}>
+              {this.props.title}
+            </Typography>
           </Grid>
           <Grid item={true} xs={12}>
             <Divider />

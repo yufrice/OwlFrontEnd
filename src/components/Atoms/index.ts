@@ -1,4 +1,4 @@
 import { TextField } from './TextField';
-import { theme } from './Theme';
+import { darkTheme, theme } from './Theme';
 
-export { TextField, theme };
+export { TextField, darkTheme, theme };

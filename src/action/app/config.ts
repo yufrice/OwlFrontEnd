@@ -2,6 +2,7 @@ import { Action } from 'redux';
 
 export enum ActionType {
   changeLimit = 'CHANGE_LIMIT',
+  changeTheme = 'CHANGE_THEME',
 }
 
 interface IChangeLimit extends Action {
@@ -18,6 +19,23 @@ export const changeLimit = (
   return { type: ActionType.changeLimit, payload: { value: val } };
 };
 
-export type Type = IChangeLimit;
+interface IChangeTheme extends Action {
+  type: ActionType.changeTheme;
+  payload: {
+    theme: boolean;
+  };
+}
 
-export const actions = { changeLimit };
+export const changeTheme = (
+  e: React.EventHandler<any>,
+  active: boolean,
+): IChangeTheme => ({
+  type: ActionType.changeTheme,
+  payload: {
+    theme: active,
+  },
+});
+
+export type Type = IChangeLimit | IChangeTheme;
+
+export const actions = { changeLimit, changeTheme };

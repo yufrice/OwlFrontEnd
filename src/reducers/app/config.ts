@@ -4,7 +4,7 @@ import * as Model from '@models/app';
 
 export const initConfig: Model.IConfig = {
   searchLimit: 10,
-  darkTheme: false,
+  theme: false,
 };
 
 export const configReducer = (
@@ -16,6 +16,11 @@ export const configReducer = (
       return {
         ...state,
         searchLimit: action.payload.value,
+      };
+    case ActionType.changeTheme:
+      return {
+        ...state,
+        theme: action.payload.theme,
       };
     default:
       return state;

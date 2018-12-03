@@ -27,21 +27,32 @@ class DashBoard extends React.PureComponent<any> {
     return (
       <StyledDiv>
         <StyledApp>
-          <Typography variant='h5'> Server </Typography>
-          {serverStatus} Version: {this.props.app.serverState.version}
+          <Typography color='textPrimary' variant='h5'>
+            {' '}
+            Server{' '}
+          </Typography>
+          <Typography color='textPrimary'>
+            {serverStatus} Version: {this.props.app.serverState.version}
+          </Typography>
         </StyledApp>
         <StyledServer>
-          <Typography variant='h5'> WebAPP </Typography>
-          <Typography>
+          <Typography color='textPrimary' variant='h5'>
+            {' '}
+            WebAPP{' '}
+          </Typography>
+          <Typography color='textPrimary'>
             Local Version: {this.props.app.version.localVersion}
           </Typography>
-          <Typography>
+          <Typography color='textPrimary'>
             Head Version: {this.props.app.version.headVersion}
           </Typography>
           <Button variant='contained'>Update</Button>
         </StyledServer>
         <StyledLog>
-          <Typography variant='h5'> Log</Typography>
+          <Typography color='textPrimary' variant='h5'>
+            {' '}
+            Log
+          </Typography>
         </StyledLog>
       </StyledDiv>
     );

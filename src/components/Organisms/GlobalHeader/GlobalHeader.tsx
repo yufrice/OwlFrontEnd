@@ -14,7 +14,7 @@ export class GlobalHeader extends React.PureComponent<IProps> {
       <StyledHeader>
         <AppBar position='absolute' color='default'>
           <Toolbar>
-            <Title variant={'h6'} color={'inherit'}>
+            <Title variant={'h6'} color={'textPrimary'}>
               TITLE
             </Title>
             <Button onClick={this.props.logoutHandler}>LogOut</Button>

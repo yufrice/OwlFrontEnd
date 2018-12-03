@@ -11,7 +11,9 @@ class SearchForm extends React.PureComponent<InjectedFormProps<any>> {
     return (
       <form>
         <StyledPaper>
-          <StyledTypography variant={'h6'}>Search</StyledTypography>
+          <StyledTypography color='textPrimary' variant={'h6'}>
+            Search
+          </StyledTypography>
           <StyledGridInput0>
             <Field
               name='word0'

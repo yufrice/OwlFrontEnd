@@ -7,11 +7,9 @@ import { theme } from '.';
 
 storiesOf('Atoms/Color', module)
   .addDecorator(centered)
-  .add('Primary', () => (
-    <ColorDisplay color={theme(false).palette.primary.main} />
-  ))
+  .add('Primary', () => <ColorDisplay color={theme.palette.primary.main} />)
   .add('Secondary', () => (
-    <ColorDisplay color={theme(false).palette.secondary.main} />
+    <ColorDisplay color={theme.palette.secondary.main} />
   ));
 
 const ColorDisplay = styled.div<{ color: string }>`

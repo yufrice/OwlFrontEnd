@@ -1,4 +1,5 @@
 import Button from '@material-ui/core/Button';
+import Paper, { PaperProps } from '@material-ui/core/Paper';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
@@ -53,14 +54,13 @@ class Login extends React.PureComponent<InjectedFormProps<any> & Props> {
   }
 }
 
-const StyledDiv = styled.div`
+const StyledDiv = styled(Paper as React.SFC<PaperProps>)`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 300px;
   height: 300px;
   position: fixed;
-  background: white;
   border-radius: 2px;
   box-shadow: 0 1px 3px;
   padding: 30px;

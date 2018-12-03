@@ -12,7 +12,7 @@ export interface IAppState {
 
 export interface IConfig {
   searchLimit: number;
-  darkTheme: boolean;
+  theme: boolean;
 }
 
 export interface Inputs {
