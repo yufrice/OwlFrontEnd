@@ -31,8 +31,9 @@ class DashBoard extends React.PureComponent<any> {
             {' '}
             Server{' '}
           </Typography>
+          {serverStatus}
           <Typography color='textPrimary'>
-            {serverStatus} Version: {this.props.app.serverState.version}
+            Version: {this.props.app.serverState.version}
           </Typography>
         </StyledApp>
         <StyledServer>
