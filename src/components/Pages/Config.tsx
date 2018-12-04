@@ -36,8 +36,11 @@ class Config extends React.Component<any> {
 }
 
 const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
-  margin: 10%;
-  padding: 10%;
+  padding: 30px;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 400px;
 `;
 
 const StyledSlider = styled(Slider as React.SFC<SliderProps>)`
