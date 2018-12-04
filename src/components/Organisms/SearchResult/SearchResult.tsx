@@ -8,7 +8,14 @@ import * as Type from './type';
 export class SearchResult extends React.PureComponent<Type.IProps> {
   public render() {
     const itemList = (item: Item) => {
-      return <ItemCard key={item.id} title={item.name} image={item.image} />;
+      return (
+        <ItemCard
+          key={item.id}
+          title={item.name}
+          body={item.word}
+          image={item.image}
+        />
+      );
     };
     if ('found' === this.props.searchState) {
       return (

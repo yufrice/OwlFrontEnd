@@ -22,7 +22,7 @@ class App extends React.PureComponent<Props> {
 }
 
 const StyledDiv = styled.div`
-  min-height: 100vh;
+  margin: 10px;
   display: flex;
   flex-direction: column;
 `;

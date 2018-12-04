@@ -61,16 +61,17 @@ class DashBoard extends React.PureComponent<any> {
 
 const StyledDiv = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.5 1fr 1fr 0.5;
   grid-template-rows: 1fr 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
   grid-template-areas:
-    'app server'
-    'log log';
+    '. app server .'
+    '. log log .';
 `;
 
 const StyledPaper = styled(Paper as React.SFC<PaperProps>)`
   padding: 30px;
-  margin: 10px;
 `;
 
 const StyledApp = styled(StyledPaper)`
