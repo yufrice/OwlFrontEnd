@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import * as Action from '@/action';
 import * as AApp from '@/action/app';
 import * as UI from '@/action/ui';
-import { AddItem } from '@/components/Organisms';
+import { AddItem, ViewItem } from '@/components/Organisms';
 import { IRootState } from '@reducers';
 
 type Props = IRootState & Action.Type;
@@ -20,6 +20,7 @@ class Edit extends React.PureComponent<Props> {
     return (
       <StyledDiv>
         <this.AddItem />
+        <ViewItem />
       </StyledDiv>
     );
   }
@@ -27,7 +28,7 @@ class Edit extends React.PureComponent<Props> {
 
 const StyledDiv = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 `;

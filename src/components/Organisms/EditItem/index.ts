@@ -1,3 +1,4 @@
 import AddItem from './AddItem';
+import { ViewItem } from './ViewItem';
 
-export { AddItem };
+export { AddItem, ViewItem };
