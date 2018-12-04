@@ -17,6 +17,7 @@ export class ItemCard extends React.PureComponent<IProps> {
             <Typography color='textPrimary' variant={'h6'}>
               {this.props.title}
             </Typography>
+            <Typography color='textPrimary'>{this.props.body}</Typography>
           </Grid>
           <Grid item={true} xs={12}>
             <Divider />
