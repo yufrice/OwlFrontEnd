@@ -15,6 +15,21 @@ build:
     - yarn install
     - yarn run build
 
+lint:ts:
+  stage: test
+  script:
+    - yarn lint:ts
+
+lint:css:
+  stage: test
+  script:
+    - yarn lint:css
+
+test:
+  stage: test
+  script:
+    - yarn test
+
 deploy:
   stage: deploy
   script:
