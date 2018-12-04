@@ -63,7 +63,7 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
       const params = new URLSearchParams();
       [action.meta.word]
         .concat(action.meta.inputs)
-        .slice(0, 5)
+        .slice(0, store.getState().app.config.searchLimit)
         .map((str: string) => params.append('search', str));
       API.getItem(params)
         .then(API.statusCheck)
