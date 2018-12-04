@@ -15,7 +15,6 @@
     "normalize.css": "^8.0.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-paginate": "^6.0.0",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "3.1.0",
