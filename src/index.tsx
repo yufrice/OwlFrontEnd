@@ -29,7 +29,6 @@ if (process.env.NODE_ENV !== 'production') {
   middlewares.push(logger);
 }
 const store: Store = createStore(
-  // const store = createStore<any, any, any, any>(
   rootReducer(history),
   compose(
     applyMiddleware(...middlewares),
