@@ -10,7 +10,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { api, auth } from '@/middleware';
 import rootReducer from '@/reducers';
-import { IRootState } from '@reducers';
 import Router from './Router';
 
 import 'normalize.css';
