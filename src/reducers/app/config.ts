@@ -3,7 +3,7 @@ import { ActionType } from '@/action/app/config';
 import * as Model from '@models/app';
 
 export const initConfig: Model.IConfig = {
-  searchLimit: 10,
+  searchLimit: 0.8,
   theme: false,
 };
 

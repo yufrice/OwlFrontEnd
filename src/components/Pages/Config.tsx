@@ -19,9 +19,8 @@ class Config extends React.Component<any> {
           単語距離の閾値: {this.props.config.searchLimit}{' '}
         </Typography>
         <StyledSlider
-          min={1}
-          max={100}
-          step={1}
+          min={0.3}
+          max={1}
           onChange={this.props.changeLimit}
           value={this.props.config.searchLimit}
         />

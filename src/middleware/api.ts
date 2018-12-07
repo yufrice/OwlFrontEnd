@@ -62,8 +62,15 @@ export const api: Middleware = (store: MiddlewareAPI) => (next: Dispatch) => (
     case ActionType.searchRequestGet:
       const params = new URLSearchParams();
       [action.meta.word]
-        .concat(action.meta.inputs)
-        .slice(0, store.getState().app.config.searchLimit)
+        .concat(
+          action.meta.inputs
+            .filter(
+              (input: any) =>
+                input.sim >= store.getState().app.config.searchLimit,
+            ) // (a -> Bool) -> (a -> b) -> [a] -> [b] ほしい…
+            .slice(1, 30)
+            .map((input: any) => input.word),
+        )
         .map((str: string) => params.append('search', str));
       API.getItem(params)
         .then(API.statusCheck)
