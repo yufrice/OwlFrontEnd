@@ -54,7 +54,7 @@ class SearchForm extends React.PureComponent<InjectedFormProps<any>> {
             disabled={this.props.pristine}
             variant={'contained'}
           >
-            Submit
+						Search
           </StyledGridButton1>
         </StyledPaper>
       </form>

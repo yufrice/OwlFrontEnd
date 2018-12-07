@@ -10,7 +10,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { api, auth } from '@/middleware';
 import rootReducer from '@/reducers';
-import { IRootState } from '@reducers';
 import Router from './Router';
 
 import 'normalize.css';
@@ -29,15 +28,10 @@ if (process.env.NODE_ENV !== 'production') {
   });
   middlewares.push(logger);
 }
-const store: Store<IRootState & any> = createStore(
-  // const store = createStore<any, any, any, any>(
+const store: Store = createStore(
   rootReducer(history),
   compose(
-    applyMiddleware(...middlewares),
-    process.env.NODE_ENV !== 'production'
-      ? (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-          (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-      : undefined,
+    applyMiddleware(...middlewares)
   ),
 );
 
