@@ -11,7 +11,7 @@ import { IRootState } from '@reducers';
 
 type Props = IRootState & Action.Type;
 
-class Edit extends React.PureComponent<Props> {
+class Edit extends React.Component<Props> {
   private AddItem = AddItem({
     onSubmit: this.props.submit,
     onChangeFile: this.props.inputFile,

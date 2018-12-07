@@ -10,7 +10,7 @@ interface IProps {
   onChangeFile: any;
 }
 
-class AddItem extends React.PureComponent<InjectedFormProps<any> & IProps> {
+class AddItem extends React.Component<InjectedFormProps<any> & IProps> {
   public render() {
     return (
       <StyledPaper>

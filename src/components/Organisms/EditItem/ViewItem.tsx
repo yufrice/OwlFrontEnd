@@ -15,14 +15,14 @@ import styled from 'styled-components';
 
 import * as Type from '@models/app';
 
-const test: Type.Item[] = [
-  { id: 'id0', name: 'name', desc: 'desc', word: 'word', image: 'image' },
-  { id: 'id1', name: 'name', desc: 'desc', word: 'word', image: 'image' },
-  { id: 'id2', name: 'name', desc: 'desc', word: 'word', image: 'image' },
-  { id: 'id3', name: 'name', desc: 'desc', word: 'word', image: 'image' },
-  { id: 'id4', name: 'name', desc: 'desc', word: 'word', image: 'image' },
-  { id: 'id5', name: 'name', desc: 'desc', word: 'word', image: 'image' },
-];
+// const test: Type.Item[] = [
+//   { id: 'id0', name: 'name', desc: 'desc', word: 'word', image: 'image' },
+//   { id: 'id1', name: 'name', desc: 'desc', word: 'word', image: 'image' },
+//   { id: 'id2', name: 'name', desc: 'desc', word: 'word', image: 'image' },
+//   { id: 'id3', name: 'name', desc: 'desc', word: 'word', image: 'image' },
+//   { id: 'id4', name: 'name', desc: 'desc', word: 'word', image: 'image' },
+//   { id: 'id5', name: 'name', desc: 'desc', word: 'word', image: 'image' },
+// ];
 
 /**
  * test date
@@ -60,7 +60,7 @@ export class ViewItem extends React.Component<any, IState> {
   }
 
   public render() {
-    const ListRender = listRender(test);
+    const ListRender = listRender([]);
     return (
       <StyledPaper>
         <Button color={'primary'} variant={'contained'}>
