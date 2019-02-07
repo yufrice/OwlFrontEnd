@@ -12,7 +12,7 @@ export class SearchResult extends React.PureComponent<Type.IProps> {
         <ItemCard
           key={item.id}
           title={item.name}
-          body={item.word}
+          body={item.desc}
           image={item.image}
         />
       );
